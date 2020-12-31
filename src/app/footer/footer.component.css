@@ -1,0 +1,14 @@
+.footer-wrapper {
+    margin: 0 0;
+    padding: 2% 0;
+    border-top: 1px solid #ccc;
+}
+.footer-copyright li {
+    float: left;
+    list-style: none;
+    font-size: 12px;
+    line-height: 150%;
+    color: #666;
+    padding: 0 8px;
+    border-left: 1px solid #999;
+}

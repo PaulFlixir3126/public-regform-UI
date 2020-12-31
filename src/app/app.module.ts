@@ -15,7 +15,6 @@ import { HttpTokenInterceptor } from './providers/httpInterceptor/http-token-int
 // jwt
 //user role try start
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 // user role try end
 import {
 
@@ -57,9 +56,10 @@ import {
 } from '@angular/material';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 // import { ChartsModule } from 'ng2-charts';
-import { ChartsModule, ThemeService } from 'ng2-charts';
-import { Ng2GaugeModule } from 'ng2-gauge';
-import { GensetdetailComponent } from './gensetdetail/gensetdetail.component';
+import { FooterComponent } from './footer/footer.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { HeaderComponent } from './header/header.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
@@ -74,7 +74,10 @@ export class SafeHtmlPipe implements PipeTransform {
     LoginComponent,
     UserdashboardComponent,
     SafeHtmlPipe,
-    GensetdetailComponent
+    FooterComponent,
+    SideNavComponent,
+    HeaderComponent,
+    RegisterFormComponent
   ],
   imports: [
     FormsModule,
@@ -123,8 +126,6 @@ export class SafeHtmlPipe implements PipeTransform {
     MatTooltipModule,
     MatTreeModule,
     NgxPermissionsModule.forRoot(),
-    ChartsModule,
-    Ng2GaugeModule
   ],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   providers: [
@@ -134,7 +135,7 @@ export class SafeHtmlPipe implements PipeTransform {
 
       multi: true
     },
-    DatePipe,ThemeService
+    DatePipe
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

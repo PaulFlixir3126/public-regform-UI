@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { from } from 'rxjs';
-import { GensetdetailComponent } from './gensetdetail/gensetdetail.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -13,13 +13,13 @@ const routes: Routes = [
     path: 'user/dashboard',
     component: UserdashboardComponent
   }, {
-    path: 'user/dashboard/genset_detail',
-    component: GensetdetailComponent
+    path: 'register',
+    component: RegisterFormComponent
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/login'
+    redirectTo: '/register'
   }
 ];
 

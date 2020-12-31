@@ -34,7 +34,6 @@ import { NgxPermissionsService } from "ngx-permissions";
 import { DatePipe } from "@angular/common";
 import { map } from "rxjs/operators";
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
 import { Observable, Observer } from 'rxjs';
 // import panzoom from "panzoom";
 declare var google: any;
@@ -45,13 +44,6 @@ declare var google: any;
   styleUrls: ["./userdashboard.component.css"],
 })
 export class UserdashboardComponent implements OnInit {
-  // doughnutChart Start
-  public doughnutChartLabels: Label[] = ['Label A', 'Label B', 'Label C','Label D','Label E'];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100,600,230],
-  ];
-  public doughnutChartType: ChartType = 'doughnut';
-   // doughnutChart End
   gensetTable = [{
     img:'../../assets/gen.png',
     gensetName : 'AFX Genset',
