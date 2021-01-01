@@ -60,6 +60,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { RegisterFormStepsComponent } from './register-form-steps/register-form-steps.component';
+import { RegisterFormStepOneComponent } from './register-form-step-one/register-form-step-one.component';
+import { RegisterFormStepTwoComponent } from './register-form-step-two/register-form-step-two.component';
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
@@ -77,7 +80,10 @@ export class SafeHtmlPipe implements PipeTransform {
     FooterComponent,
     SideNavComponent,
     HeaderComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    RegisterFormStepsComponent,
+    RegisterFormStepOneComponent,
+    RegisterFormStepTwoComponent
   ],
   imports: [
     FormsModule,
