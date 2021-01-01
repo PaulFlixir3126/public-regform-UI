@@ -1,22 +1,69 @@
-<div class="container minh">
+<div class="container minh" >
   <div class="row mt-3">
-    <div class="card">
-      <div class="card-header card-header-tabs card-header-info" >
-        <div class="nav-tabs-navigation">
-          <div class="nav-tabs-wrapper">
-            <h5 class="card-title"> Login Details</h5>
+    <div class="col-md-10 offset-md-1">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-info" >
+              <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                  <h5 class="card-title"> Login Details</h5>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 ml-5 pt-3">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>User Name *</mat-label>
+                      <input type="text" matInput  placeholder="John Mike..">
+                    </mat-form-field>
+                </div>
+                <div class="offset-md-1 col-md-5 pt-3 pl-0">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Date of Birth*</mat-label>
+                      <input type="date" matInput  placeholder="31/12/2021">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-5 ">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Email*</mat-label>
+                      <input type="email" matInput  placeholder="Ex. pat@example.com">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-sm btn-info btn-round mt-3" (click)="getOtp('email')"> Get Otp</button>
+                </div>
+                <div class=" col-md-3 pl-0">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Mobile No.*</mat-label>
+                      <input type="text" matInput  placeholder="+91-8123412685" autocomplete="false">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-sm btn-info btn-round mt-3" (click)="getOtp('phone')"> Get Otp</button>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 ml-5 ">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Password *</mat-label>
+                      <input type="password" matInput  placeholder="Test@123">
+                    </mat-form-field>
+                </div>
+                <div class="offset-md-1 col-md-5 pl-0">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Confirm Password *</mat-label>
+                      <input type="text" matInput  placeholder="...">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-12 text-center">
+                  <button class="btn btn-info btn-round mr-1"> Register</button>
+                  <button class="btn btn-info btn-round ml-1"> Reset</button>
+                </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-lg-6 ml-3 mt-2">
-            <mat-form-field class="example-full-width">
-                <mat-label>Email*</mat-label>
-                <input type="email" matInput  placeholder="Ex. pat@example.com">
-              </mat-form-field>
-          </div>
-          <div class="col-lg-6"></div>
-      </div>
-    </div>
+       </div>    
   </div>
 </div>
