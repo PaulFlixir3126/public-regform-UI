@@ -1,1 +1,96 @@
-<p>register-form-step-five works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card">
+      <div class="card-header card-header-tabs card-header-info">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            <h5 class="card-title">Experience Details</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 ml-5 pt-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.1 Employment (Present/Past) </mat-label>
+            <select matNativeControl required>
+              <option value=""></option>
+              <option value="Present">Present</option>
+              <option value="Past">Past</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="offset-md-1 col-md-5 pt-3 pl-0">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.2 Whether selected from MPSC ? </mat-label>
+            <select matNativeControl required>
+              <option value=""></option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 ml-5 pt-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.3 Institution / Department / Organisation </mat-label>
+            <input type="date" matInput placeholder="31/12/2021" />
+          </mat-form-field>
+        </div>
+        <div class="offset-md-1 col-md-5 pt-3 pl-0">
+          <mat-form-field class="example-full-width">
+            <mat-label
+              >5.4 Is Office/Institute owned byGovt. of Maharashtra?
+              *</mat-label
+            >
+            <select matNativeControl required>
+              <option value=""></option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5 ml-5 pt-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.5 Pay Band/ Pay Scale </mat-label>
+            <input type="text" matInput placeholder="1234" />
+          </mat-form-field>
+        </div>
+        <div class="offset-md-1 col-md-5 pt-3 pl-0">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.6 Basic Pay </mat-label>
+            <input type="text" matInput placeholder="1234" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 ml-5 pt-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>5.7 Monthly Gross Salary </mat-label>
+            <input type="text" matInput placeholder="1234" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 ml-2 pt-3">
+          <table class="table table-bordered">
+            <thead>
+              <th>Sr No.</th>
+              <th>Institution / Department / Organisation</th>
+              <th>Is Office/Institute owned byGovt. of Maharashtra</th>
+              <th>Pay Band/ Pay Scale</th>
+              <th>Basic Pay</th>
+              <th>Monthly Gross Salary</th>
+
+              <th>Action</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
