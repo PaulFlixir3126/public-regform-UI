@@ -63,6 +63,10 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { RegisterFormStepsComponent } from './register-form-steps/register-form-steps.component';
 import { RegisterFormStepOneComponent } from './register-form-step-one/register-form-step-one.component';
 import { RegisterFormStepTwoComponent } from './register-form-step-two/register-form-step-two.component';
+import { RegisterFormStepThreeComponent } from './register-form-step-three/register-form-step-three.component';
+import { RegisterFormStepFourComponent } from './register-form-step-four/register-form-step-four.component';
+import { RegisterFormStepFiveComponent } from './register-form-step-five/register-form-step-five.component';
+import { RegisterFormStepSixComponent } from './register-form-step-six/register-form-step-six.component';
 @Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
@@ -83,7 +87,11 @@ export class SafeHtmlPipe implements PipeTransform {
     RegisterFormComponent,
     RegisterFormStepsComponent,
     RegisterFormStepOneComponent,
-    RegisterFormStepTwoComponent
+    RegisterFormStepTwoComponent,
+    RegisterFormStepThreeComponent,
+    RegisterFormStepFourComponent,
+    RegisterFormStepFiveComponent,
+    RegisterFormStepSixComponent
   ],
   imports: [
     FormsModule,

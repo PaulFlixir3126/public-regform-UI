@@ -3,3 +3,11 @@
     font-weight: 400;
     font-size: medium;
 }
+
+.example-full-width {
+    width: 100%;
+  }
+  
+  .minh{
+      min-height: 37rem !important;
+  }
