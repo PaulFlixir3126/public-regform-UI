@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register-form-step-four',
   templateUrl: './register-form-step-four.component.html',
@@ -7,9 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterFormStepFourComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+ 
+  qualification_details: FormGroup;
+  
+    constructor(
+      private fb: FormBuilder) { }
+  
+    ngOnInit() {
+      this.qualification_details = this.fb.group({
+        'q_type': '',
+        'name_of_degree': '',
+        'subject': '',
+        'board_university': '',
+        'precentage': '',
+        'remark': '',
+        
+      });
+    }
+    addqualification_details() {
+    console.log(this.qualification_details.value)
+    let payload = {
+      "q_type" : this.qualification_details.value["q_type"],
+      "name_of_degree" : this.qualification_details.value["name_of_degree"],
+      "subject" : this.qualification_details.value["subject"],
+      "board_university" : this.qualification_details.value["board_university"],
+      "precentage" : this.qualification_details.value["precentage"],
+      "remark" : this.qualification_details.value["remark"],
+     
+    }
+ /* this.accAPIService.addaccount(payload).subscribe(res => {
+    if (res) {
+      console.log(res);
+     
+    } else {
+    }
+  });*/
+}
 
 }

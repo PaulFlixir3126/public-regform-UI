@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <form [formGroup]="upload_details" aria-autocomplete="none" autocomplete="off">
   <div class="row">
     <div class="col-md-6">
       <div class="card">
@@ -14,7 +15,7 @@
               <img width="120rem" src="../../assets/img/uploadDefault.png" />
             </div>
             <div class="col-md-5 pt3rem">
-                <input type="file" id="myfile" name="myfile"><br><br>
+                <input id="file_name" formControlName="file_name" name="file_name" type="file" id="myfile" name="myfile"><br><br>
           </div>
         </div>
       </div>
@@ -33,10 +34,11 @@
                 <img width="120rem" src="../../assets/img/signature.png" />
               </div>
               <div class="col-md-5 pt3rem">
-                  <input type="file" id="myfile" name="myfile"><br><br>
+                  <input id="file_extension" formControlName="file_extension" name="file_extension" type="file" id="myfile" name="myfile"><br><br>
             </div>
         </div>
       </div>
     </div>
   </div>
+</form>
 </div>

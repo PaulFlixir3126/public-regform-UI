@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <form [formGroup]="qualification_details" aria-autocomplete="none" autocomplete="off">
     <div class="row">
       <div class="card">
         <div class="card-header card-header-tabs card-header-info">
@@ -12,7 +13,7 @@
           <div class="col-md-5 ml-5 pt-3">
             <mat-form-field class="example-full-width">
               <mat-label>4.1 Qualification Type </mat-label>
-              <select matNativeControl required>
+              <select id="q_type" formControlName="q_type" name="q_type" matNativeControl required>
                 <option value=""></option>
                 <option value="UG">UG</option>
                 <option value="Graduate">Graduate</option>
@@ -23,7 +24,7 @@
           <div class="offset-md-1 col-md-5 pt-3 pl-0">
             <mat-form-field class="example-full-width">
               <mat-label>5.2 Name of Degree </mat-label>
-              <select matNativeControl required>
+              <select id="name_of_degree" formControlName="name_of_degree" name="name_of_degree" matNativeControl required>
                 <option value=""></option>
                 <option value="BCA">BCA</option>
                 <option value="MBA">MBA</option>
@@ -35,7 +36,7 @@
           <div class="col-md-5 ml-5 pt-3">
             <mat-form-field class="example-full-width">
                 <mat-label>5.3 Subject </mat-label>
-                <select matNativeControl>
+                <select id="subject" formControlName="subject" name="subject" matNativeControl>
                   <option value=""></option>
                   <option value="Maths">Maths</option>
                   <option value="Maths">History</option>
@@ -46,7 +47,7 @@
           <div class="offset-md-1 col-md-5 pt-3 pl-0">
             <mat-form-field class="example-full-width">
               <mat-label>Board / University</mat-label>
-              <select matNativeControl required>
+              <select id="board_university" formControlName="board_university" name="board_university" matNativeControl required>
                 <option value=""></option>
                 <option value="Maharashtra">Maharashtra</option>
                 <option value="Bangalore">Bangalore</option>
@@ -61,7 +62,7 @@
           <div class="col-md-5 ml-5 pt-3">
             <mat-form-field class="example-full-width">
               <mat-label>5.5 Percentage </mat-label>
-              <input type="text" matInput placeholder="1234" />
+              <input id="precentage" formControlName="precentage"  type="text" matInput placeholder="1234" />
             </mat-form-field>
           </div>
           <!-- <div class="offset-md-1 col-md-5 pt-3 pl-0">
@@ -75,7 +76,7 @@
           <div class="col-md-11 ml-5 pt-3">
             <mat-form-field class="example-full-width">
               <mat-label>5.6 Remarks </mat-label>
-              <textarea type="text" matInput placeholder="Remarks" ></textarea>
+              <textarea id="remark" formControlName="remark" type="text" matInput placeholder="Remarks" ></textarea>
             </mat-form-field>
           </div>
         </div>
@@ -135,5 +136,6 @@
           </div>
       </div>
     </div>
+  </form>
   </div>
   

@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <form [formGroup]="experience_details" aria-autocomplete="none" autocomplete="off">
   <div class="row">
     <div class="card">
       <div class="card-header card-header-tabs card-header-info">
@@ -12,7 +13,7 @@
         <div class="col-md-5 ml-5 pt-3">
           <mat-form-field class="example-full-width">
             <mat-label>5.1 Employment (Present/Past) </mat-label>
-            <select matNativeControl required>
+            <select id="emp_present_past" formControlName="emp_present_past" name="emp_present_past" matNativeControl required>
               <option value=""></option>
               <option value="Present">Present</option>
               <option value="Past">Past</option>
@@ -22,7 +23,7 @@
         <div class="offset-md-1 col-md-5 pt-3 pl-0">
           <mat-form-field class="example-full-width">
             <mat-label>5.2 Whether selected from MPSC ? </mat-label>
-            <select matNativeControl required>
+            <select id="selected_mpsc" formControlName="selected_mpsc" name="selected_mpsc" matNativeControl required>
               <option value=""></option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -34,7 +35,7 @@
         <div class="col-md-5 ml-5 pt-3">
           <mat-form-field class="example-full-width">
             <mat-label>5.3 Institution / Department / Organisation </mat-label>
-            <input type="date" matInput placeholder="31/12/2021" />
+            <input id="organisation" formControlName="organisation" name="organisation" type="date" matInput placeholder="31/12/2021" />
           </mat-form-field>
         </div>
         <div class="offset-md-1 col-md-5 pt-3 pl-0">
@@ -43,7 +44,7 @@
               >5.4 Is Office/Institute owned byGovt. of Maharashtra?
               *</mat-label
             >
-            <select matNativeControl required>
+            <select  id="office_inst_own_govt" formControlName="office_inst_own_govt" name="office_inst_own_govt" matNativeControl required>
               <option value=""></option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -56,13 +57,13 @@
         <div class="col-md-5 ml-5 pt-3">
           <mat-form-field class="example-full-width">
             <mat-label>5.5 Pay Band/ Pay Scale </mat-label>
-            <input type="text" matInput placeholder="1234" />
+            <input id="pay_scale" formControlName="pay_scale" name="pay_scale" type="text" matInput placeholder="1234" />
           </mat-form-field>
         </div>
         <div class="offset-md-1 col-md-5 pt-3 pl-0">
           <mat-form-field class="example-full-width">
             <mat-label>5.6 Basic Pay </mat-label>
-            <input type="text" matInput placeholder="1234" />
+            <input id="basic_pay" formControlName="basic_pay" name="basic_pay" type="text" type="text" matInput placeholder="1234" />
           </mat-form-field>
         </div>
       </div>
@@ -70,7 +71,7 @@
         <div class="col-md-5 ml-5 pt-3">
           <mat-form-field class="example-full-width">
             <mat-label>5.7 Monthly Gross Salary </mat-label>
-            <input type="text" matInput placeholder="1234" />
+            <input id="gross_salary" formControlName="gross_salary" name="gross_salary" type="text" matInput placeholder="1234" />
           </mat-form-field>
         </div>
       </div>
@@ -106,4 +107,5 @@
       </div>
     </div>
   </div>
+</form>
 </div>
