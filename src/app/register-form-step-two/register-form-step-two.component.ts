@@ -18,12 +18,12 @@ export class RegisterFormStepTwoComponent implements OnInit {
 
   ngOnInit() {
     this.address_details = this.fb.group({
-      address_no: "",
-      premises_building: "",
-      locality: "",
-      landmark: "",
-      state: "",
-      pincode: "",
+      address_no: new FormControl('', [Validators.required]),
+      premises_building: new FormControl('', [Validators.required]),
+      locality: new FormControl('', [Validators.required,]),
+      landmark: new FormControl('',),
+      state: new FormControl('', [Validators.required]),
+      pincode: new FormControl('', [Validators.required]),
     });
   }
   addaddress_details() {

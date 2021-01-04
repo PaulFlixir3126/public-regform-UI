@@ -17,18 +17,18 @@ export class RegisterFormStepThreeComponent implements OnInit {
 
   ngOnInit() {
     this.other_details = this.fb.group({
-      ex_serviceman: "",
-      ex_serviceman_division: "",
-      date_of_appointment: "",
-      date_of_retirement: "",
-      certificate_no: "",
-      sports_person: "",
-      name_of_game: "",
-      position_medal: "",
-      tournament_from: "",
-      tournament_to: "",
-      level_of_tournament: "",
-      tournament_certificate_no: "",
+      ex_serviceman: new FormControl('', [Validators.required]),
+      ex_serviceman_division: new FormControl('', [Validators.required]),
+      date_of_appointment: new FormControl(''),
+      date_of_retirement: new FormControl(''),
+      certificate_no: new FormControl(''),
+      sports_person: new FormControl('', [Validators.required]),
+      name_of_game: new FormControl(''),
+      position_medal: new FormControl(''),
+      tournament_from: new FormControl(''),
+      tournament_to: new FormControl(''),
+      level_of_tournament: new FormControl(''),
+      tournament_certificate_no: new FormControl(''),
     });
   }
   addother_details() {

@@ -3,11 +3,18 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  FormGroupDirective,
+  NgForm,
   Validators,
 } from "@angular/forms";
-
+import {ErrorStateMatcher} from '@angular/material/core';
 import { restApiService } from "../providers/apiService.service";
-
+export class steponeError implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: "app-register-form-step-one",
   templateUrl: "./register-form-step-one.component.html",
@@ -23,25 +30,26 @@ export class RegisterFormStepOneComponent implements OnInit {
 
   ngOnInit() {
     this.personal_details = this.fb.group({
-      holding_aadhar: "",
-      aadhar_no: "",
-      aadhar_name: "",
-      salutation: "",
-      full_name: "",
-      mother_name: "",
-      dob: "",
-      gender: "",
-      mobile_no: "",
-      email_id: "",
-      marital_status: "",
-      nationality: "",
-      height: "",
-      weight: "",
-      caste_category: "",
-      certificate_no: "",
-      issue_date: "",
+      holding_aadhar: new FormControl('', [Validators.required]),
+      aadhar_no: new FormControl('', [Validators.required,Validators.minLength(12),Validators.maxLength(12)]),
+      aadhar_name: new FormControl('', [Validators.required,Validators.maxLength(25)]),
+      salutation: new FormControl('', [Validators.required]),
+      full_name: new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      mother_name: new FormControl('', [Validators.required,Validators.maxLength(15)]),
+      dob: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+      mobile_no: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+      email_id: new FormControl('', [Validators.required,Validators.email,]),
+      marital_status: new FormControl('', [Validators.required]),
+      nationality: new FormControl('', [Validators.required]),
+      height: new FormControl(''),
+      weight: new FormControl(''),
+      caste_category: new FormControl('', [Validators.required]),
+      certificate_no: new FormControl(''),
+      issue_date: new FormControl(''),
     });
   }
+  matcher = new steponeError();
   addpersonal_details() {
     console.log(this.personal_details.value);
     let payload = {
@@ -63,17 +71,22 @@ export class RegisterFormStepOneComponent implements OnInit {
       certificate_no: this.personal_details.value["certificate_no"],
       issue_date: this.personal_details.value["issue_date"],
     };
-    console.log(JSON.stringify(payload));
-    this.restApiService.personalInfoCreation(payload).subscribe((res) => {
-      if (res) {
-        // console.log(res);
-        if (res.status == true) {
-          this.restApiService.openSnackbar(res.message);
+    // console.log(JSON.stringify(payload));
+    if(this.personal_details.valid){
+      this.restApiService.personalInfoCreation(payload).subscribe((res) => {
+        if (res) {
+          // console.log(res);
+          if (res.status == true) {
+            this.restApiService.openSnackbar(res.message);
+          } else {
+            this.restApiService.openSnackbar(res.message);
+          }
         } else {
-          this.restApiService.openSnackbar(res.message);
         }
-      } else {
-      }
-    });
+      });
+    }else{
+      this.restApiService.openSnackbar('Please fill required fields');
+    }
+  
   }
 }

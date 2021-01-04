@@ -18,12 +18,12 @@ export class RegisterFormStepFourComponent implements OnInit {
 
   ngOnInit() {
     this.qualification_details = this.fb.group({
-      q_type: "",
-      name_of_degree: "",
-      subject: "",
-      board_university: "",
-      precentage: "",
-      remark: "",
+      q_type: new FormControl('', [Validators.required,Validators.minLength(4)]),
+      name_of_degree: new FormControl('', [Validators.required,Validators.minLength(4)]),
+      subject: new FormControl(''),
+      board_university: new FormControl('', [Validators.required,Validators.minLength(4)]),
+      precentage: new FormControl(''),
+      remark: new FormControl(''),
     });
   }
   addqualification_details() {

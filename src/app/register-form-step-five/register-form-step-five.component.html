@@ -28,6 +28,9 @@
                 <option value="Present">Present</option>
                 <option value="Past">Past</option>
               </select>
+              <mat-error *ngIf="experience_details.get('emp_present_past').hasError('required')">
+                Select is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -38,12 +41,14 @@
                 formControlName="selected_mpsc"
                 name="selected_mpsc"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error *ngIf="experience_details.get('selected_mpsc').hasError('required')">
+                Select is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -61,6 +66,9 @@
                 matInput
                 placeholder="31/12/2021"
               />
+              <mat-error *ngIf="experience_details.get('organisation').hasError('required')">
+                Information is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -74,12 +82,14 @@
                 formControlName="office_inst_own_govt"
                 name="office_inst_own_govt"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error *ngIf="experience_details.get('office_inst_own_govt').hasError('required')">
+                Select is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>

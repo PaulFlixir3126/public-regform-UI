@@ -21,12 +21,14 @@
                 formControlName="ex_serviceman"
                 name="ex_serviceman"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error *ngIf="other_details.get('ex_serviceman').hasError('required')">
+                Response is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -46,6 +48,9 @@
                 <option value="army">army</option>
                 <option value="airforce">airforce</option>
               </select>
+              <mat-error *ngIf="other_details.get('ex_serviceman_division').hasError('required')">
+                Response is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -105,123 +110,17 @@
                 formControlName="sports_person"
                 name="sports_person"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error *ngIf="other_details.get('sports_person').hasError('required')">
+                Response is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-md-12 pt-3">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class="text-info">
-                    <th>SrNo.</th>
-                    <th>Name of the Game</th>
-                    <th>Position/Medal</th>
-                    <th>Period of Tournament From</th>
-                    <th>Period of Tournament To</th>
-                    <th>Level of Tournament</th>
-                    <th>Certificate elgible for Group</th>
-                    <th>Action</th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <input
-                            id="name_of_game"
-                            formControlName="name_of_game"
-                            name="name_of_game"
-                            type="text"
-                            matInput
-                            placeholder="ABCD"
-                          />
-                        </mat-form-field>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <input
-                            id="position_medal"
-                            formControlName="position_medal"
-                            name="position_medal"
-                            type="text"
-                            matInput
-                            placeholder="Eg.."
-                          />
-                        </mat-form-field>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <input
-                            id="tournament_from"
-                            formControlName="tournament_from"
-                            name="tournament_from"
-                            type="date"
-                            matInput
-                            placeholder="31/12/2021"
-                          />
-                        </mat-form-field>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <input
-                            id="tournament_to"
-                            formControlName="tournament_to"
-                            name="tournament_to"
-                            type="date"
-                            matInput
-                            placeholder="31/12/2021"
-                          />
-                        </mat-form-field>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <select
-                            id="level_of_tournament"
-                            formControlName="level_of_tournament"
-                            name="level_of_tournament"
-                            matNativeControl
-                            required
-                          >
-                            <option value=""></option>
-                            <option value="State">State</option>
-                            <option value="National">National</option>
-                          </select>
-                        </mat-form-field>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                          <select
-                            id="tournament_certificate_no"
-                            formControlName="tournament_certificate_no"
-                            name="tournament_certificate_no"
-                            matNativeControl
-                            required
-                          >
-                            <option value=""></option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                          </select>
-                        </mat-form-field>
-                      </td>
-                      <td class="text-center">
-                        <button class="btn btn-info btn-sm btn-round">
-                          Add
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="row mb-3">

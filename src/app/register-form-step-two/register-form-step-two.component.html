@@ -25,6 +25,9 @@
                 matInput
                 placeholder="EC 2-401"
               />
+              <mat-error *ngIf="address_details.get('address_no').hasError('required')">
+                Address Lane 1 is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -38,6 +41,9 @@
                 matInput
                 placeholder="Ertiga."
               />
+              <mat-error *ngIf="address_details.get('premises_building').hasError('required')">
+                Address Lane 2 is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -53,6 +59,9 @@
                 matInput
                 placeholder="MANPADA."
               />
+              <mat-error *ngIf="address_details.get('locality').hasError('required')">
+                Locality is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -78,12 +87,14 @@
                 formControlName="state"
                 name="state"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Shrimati">Shrimati</option>
                 <option value="Shri">Shri</option>
               </select>
+              <mat-error *ngIf="address_details.get('state').hasError('required')">
+                State is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -97,6 +108,9 @@
                 matInput
                 placeholder="XYZ ZZ XYZ"
               />
+              <mat-error *ngIf="address_details.get('pincode').hasError('required')">
+                Pincode is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>

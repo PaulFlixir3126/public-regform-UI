@@ -24,12 +24,18 @@
                 class="form-control"
                 formControlName="holding_aadhar"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error
+                *ngIf="
+                  personal_details.get('holding_aadhar').hasError('required')
+                "
+              >
+                Selection id <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -43,6 +49,11 @@
                 matInput
                 placeholder="A123456Z2"
               />
+              <mat-error
+                *ngIf="personal_details.get('aadhar_no').hasError('required')"
+              >
+                Aadhaar Number <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -58,6 +69,11 @@
                 matInput
                 placeholder="Ex. (Exactly as mentioned on Aadhaar Card) "
               />
+              <mat-error
+                *ngIf="personal_details.get('aadhar_name').hasError('required')"
+              >
+                Name is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -80,12 +96,16 @@
                 formControlName="salutation"
                 name="salutation"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Shrimati">Shrimati</option>
                 <option value="Shri">Shri</option>
               </select>
+              <mat-error
+                *ngIf="personal_details.get('salutation').hasError('required')"
+              >
+                Salutation is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -99,6 +119,11 @@
                 matInput
                 placeholder="XYZ ZZ XYZ"
               />
+              <mat-error
+                *ngIf="personal_details.get('full_name').hasError('required')"
+              >
+                Fullname is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -114,6 +139,11 @@
                 matInput
                 placeholder="XYZ XYZ "
               />
+              <mat-error
+                *ngIf="personal_details.get('mother_name').hasError('required')"
+              >
+                Mothers Name is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -127,6 +157,11 @@
                 matInput
                 placeholder="31/12/2021"
               />
+              <mat-error
+                *ngIf="personal_details.get('dob').hasError('required')"
+              >
+                Date of Birth is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -141,6 +176,12 @@
               ><br />
               <mat-radio-button value="1">Male</mat-radio-button>
               <mat-radio-button class="ml-5" value="2">Female</mat-radio-button>
+              <mat-error
+                *ngIf="personal_details.get('gender').hasError('required')"
+              >
+                <!-- Date of Birth is <strong>required</strong> -->
+                Please select your Gender
+              </mat-error>
             </mat-radio-group>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -154,6 +195,11 @@
                 matInput
                 placeholder="0987654321"
               />
+              <mat-error
+                *ngIf="personal_details.get('mobile_no').hasError('required')"
+              >
+                Mobile number is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -169,6 +215,19 @@
                 matInput
                 placeholder="abc@xyz.com"
               />
+              <mat-error
+                *ngIf="
+                  personal_details.get('email_id').hasError('email') &&
+                  !personal_details.get('email_id').hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error
+                *ngIf="personal_details.get('email_id').hasError('required')"
+              >
+                Email is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -180,12 +239,18 @@
                 formControlName="marital_status"
                 name="marital_status"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
+              <mat-error
+                *ngIf="
+                  personal_details.get('marital_status').hasError('required')
+                "
+              >
+                Marital status is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -198,12 +263,16 @@
                 formControlName="nationality"
                 name="nationality"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Indian">Indian</option>
                 <option value="Other">Other</option>
               </select>
+              <mat-error
+                *ngIf="personal_details.get('nationality').hasError('required')"
+              >
+                Nationality is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -263,7 +332,6 @@
                 formControlName="caste_category"
                 name="caste_category"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="SC">SC</option>
@@ -278,6 +346,13 @@
                 <option value="EWS">EWS</option>
                 <option value="Open">Open</option>
               </select>
+              <mat-error
+                *ngIf="
+                  personal_details.get('caste_category').hasError('required')
+                "
+              >
+                Caste category is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -316,7 +391,12 @@
         <button class="btn btn-info btn-round ml-5">Previous</button>
       </div> -->
       <div class="col-md-12 text-center">
-        <button class="btn btn-info btn-round mr-5" (click)="addpersonal_details()">Save and Continue</button>
+        <button
+          class="btn btn-info btn-round mr-5"
+          (click)="addpersonal_details()"
+        >
+          Save and Continue
+        </button>
       </div>
     </div>
   </div>
