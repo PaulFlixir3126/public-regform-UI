@@ -5,3 +5,30 @@
   .brtop{
     border-top: 1px solid #867f7f59;
   }
+
+   .brbtom{
+    border-bottom: 1px solid #867f7f59;
+  }
+
+  .minheight{
+    min-height: 34rem !important;
+  }
+  .fp9{
+      font-size: 0.9rem;
+      white-space: nowrap;
+  }
+  .bleft{
+    border-left: 1px solid #867f7f59;
+  }
+  .fontw{
+      font-weight: 600 !important;
+  }
+  .lih{
+      line-height: 2.5;
+  }
+  .fnt{
+      font-size: x-small;
+  }
+  .pointer{
+      cursor: pointer;
+  }
