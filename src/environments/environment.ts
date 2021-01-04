@@ -1,6 +1,6 @@
 const envObject = {
-  // serviceUrl: 'http://localhost:5000/api'
-  serviceUrl: 'https://infrastructuremicroservicetest.herokuapp.com/api'
+  serviceUrl: 'http://localhost:6001'
+  // serviceUrl: 'https://infrastructuremicroservicetest.herokuapp.com/api'
   // 
 };
 export const environment = {

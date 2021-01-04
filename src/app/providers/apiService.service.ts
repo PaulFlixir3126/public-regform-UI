@@ -25,9 +25,9 @@ export class restApiService {
   }
 
   personalInfoCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/sector", Payload)
+    return this.http.post(this.APIService + "/register/user/personal", Payload)
       .pipe(
-        tap(heroes => this.log(`Created Sector`)),
+        tap(heroes => this.log(`Created personal`)),
       );
   }
 

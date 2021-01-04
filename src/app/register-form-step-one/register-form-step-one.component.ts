@@ -63,6 +63,7 @@ export class RegisterFormStepOneComponent implements OnInit {
       certificate_no: this.personal_details.value["certificate_no"],
       issue_date: this.personal_details.value["issue_date"],
     };
+    console.log(JSON.stringify(payload));
     this.restApiService.personalInfoCreation(payload).subscribe((res) => {
       if (res) {
         // console.log(res);
