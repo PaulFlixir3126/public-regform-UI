@@ -1,64 +1,114 @@
-
 <div class="container-fluid">
-  <form [formGroup]="address_details" aria-autocomplete="none" autocomplete="off">
+  <form
+    [formGroup]="address_details"
+    aria-autocomplete="none"
+    autocomplete="off"
+  >
     <div class="row">
-        <div class="card">
-            <div class="card-header card-header-tabs card-header-info" >
-              <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                  <h5 class="card-title"> Address</h5>
-                </div>
-              </div>
+      <div class="card">
+        <div class="card-header card-header-tabs card-header-info">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <h5 class="card-title">Address</h5>
             </div>
-            <div class="row">
-              <div class="col-md-5 ml-5 pt-3">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>2.1 Flat / Room / Door / Block House No *  </mat-label>
-                    <input id="address_no" formControlName="address_no" name="address_no" type="text" matInput  placeholder="EC 2-401">
-                    </mat-form-field>
-                </div>
-                <div class="offset-md-1 col-md-5 pt-3 pl-0">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>2.2 Name of Premises Building *  </mat-label>
-                      <input id="premises_building" formControlName="premises_building" name="premises_building" type="text" matInput  placeholder="Ertiga.">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5 ml-5 pt-3">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>2.4 Area / Locality *  </mat-label>
-                    <input id="locality" formControlName="locality" name="locality" type="text" matInput  placeholder="MANPADA.">
-                  </mat-form-field>
-                  </div>
-                  <div class="offset-md-1 col-md-5 pt-3 pl-0">
-                    <mat-form-field class="example-full-width">
-                      <mat-label>2.5 Landmark  </mat-label>
-                      <input id="landmark" formControlName="landmark" name="landmark" type="text" matInput  placeholder="TIKUJNIWADI">
-                      </mat-form-field>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="col-md-5 ml-5 pt-3">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>2.6 State / Union Territory </mat-label>
-                      <select id="state" formControlName="state" name="state" matNativeControl required>
-                        <option value=""></option>
-                        <option value="Shrimati">Shrimati</option>
-                        <option value="Shri">Shri</option>     
-                      </select>
-                    </mat-form-field>
-                  </div>
-                  <div class="offset-md-1 col-md-5 pt-3 pl-0">
-                    <mat-form-field class="example-full-width">
-                      <mat-label>2.10 Pincode *</mat-label>
-                      <input id="pincode" formControlName="pincode" name="pincode" type="text" matInput  placeholder="XYZ ZZ XYZ">
-                    </mat-form-field>
-                      
-                  </div>
-              </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.1 Flat / Room / Door / Block House No * </mat-label>
+              <input
+                id="address_no"
+                formControlName="address_no"
+                name="address_no"
+                type="text"
+                matInput
+                placeholder="EC 2-401"
+              />
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.2 Name of Premises Building * </mat-label>
+              <input
+                id="premises_building"
+                formControlName="premises_building"
+                name="premises_building"
+                type="text"
+                matInput
+                placeholder="Ertiga."
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.4 Area / Locality * </mat-label>
+              <input
+                id="locality"
+                formControlName="locality"
+                name="locality"
+                type="text"
+                matInput
+                placeholder="MANPADA."
+              />
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.5 Landmark </mat-label>
+              <input
+                id="landmark"
+                formControlName="landmark"
+                name="landmark"
+                type="text"
+                matInput
+                placeholder="TIKUJNIWADI"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.6 State / Union Territory </mat-label>
+              <select
+                id="state"
+                formControlName="state"
+                name="state"
+                matNativeControl
+                required
+              >
+                <option value=""></option>
+                <option value="Shrimati">Shrimati</option>
+                <option value="Shri">Shri</option>
+              </select>
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label>2.10 Pincode *</mat-label>
+              <input
+                id="pincode"
+                formControlName="pincode"
+                name="pincode"
+                type="text"
+                matInput
+                placeholder="XYZ ZZ XYZ"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6 text-left">
+        <button class="btn btn-info btn-round ">Previous</button>
+      </div>
+      <div class="col-md-6 text-right ">
+        <button class="btn btn-info btn-round ">Save and Continue</button>
+      </div>
     </div>
   </form>
 </div>
-

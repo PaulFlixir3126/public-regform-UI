@@ -24,110 +24,40 @@ export class restApiService {
     this.APIService = environment.serviceUrl;
   }
 
-  sectorCreation(Payload): Observable<any> {
+  personalInfoCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/sector", Payload)
       .pipe(
         tap(heroes => this.log(`Created Sector`)),
       );
   }
-  fetchSector(): Observable<any> {
-    return this.http.get(this.APIService + "/sector")
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  zoneCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/zone", Payload)
+
+  addressInfoCreation(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/sector", Payload)
       .pipe(
         tap(heroes => this.log(`Created Sector`)),
       );
   }
-  fetchZone(): Observable<any> {
-    return this.http.get(this.APIService + "/zone")
+
+  othersInfoCreation(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/sector", Payload)
       .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  fetchAssetDetail(id): Observable<any> {
-    return this.http.get(this.APIService + "/asset/details?assetref="+id)
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  
-  uploadOverlay() {
-    var url = "/sector/overlay";
-    return this.APIService + url;
-  }
-  
-  assetCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/asset", Payload)
-      .pipe(
-        tap(heroes => this.log(`Created Asset`)),
+        tap(heroes => this.log(`Created Sector`)),
       );
   }
 
-  fetchAssets(id): Observable<any> {
-    return this.http.get(this.APIService + "/asset?zoneref="+id)
+  qualificationInfoCreation(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/sector", Payload)
       .pipe(
-        tap(heroes => this.log(`fetch project success`)),
+        tap(heroes => this.log(`Created Sector`)),
       );
   }
-  
-  assetTypeCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/assetType", Payload)
+  experInfoCreation(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/sector", Payload)
       .pipe(
-        tap(heroes => this.log(`Created assetType`)),
+        tap(heroes => this.log(`Created Sector`)),
       );
   }
-  fetchAssetType(): Observable<any> {
-    return this.http.get(this.APIService + "/assetType")
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  locationCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/location", Payload)
-      .pipe(
-        tap(heroes => this.log(`Created location`)),
-      );
-  }
-  fetchLocation(): Observable<any> {
-    return this.http.get(this.APIService + "/location")
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  beaconCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/beacon", Payload)
-      .pipe(
-        tap(heroes => this.log(`Created beacon`)),
-      );
-  }
-  fetchBeacon(): Observable<any> {
-    return this.http.get(this.APIService + "/beacon")
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
-  projectDetailsUpdation(Payload): Observable<any> {
-    return this.http.put(this.APIService + "/admin/project", Payload)
-      .pipe(
-        tap(heroes => this.log(`project updated Success`)),
-      );
-  }
-  deleteProject(Payload): Observable<any> {
-    return this.http.delete(this.APIService + "/project?projectId=" + Payload.projectId)
-      .pipe(
-        tap(heroes => this.log(`delete project success`)),
-      );
-  }
-  projectList(): Observable<any> {
-    return this.http.get(this.APIService + "/project")
-      .pipe(
-        tap(heroes => this.log(`fetch project success`)),
-      );
-  }
+
   openSnackbar(message: string) {
     return this.snackBar.open(message, "close",
       { verticalPosition: 'bottom', horizontalPosition: 'right', duration: 4000, panelClass: ['snackbarStyle'] });

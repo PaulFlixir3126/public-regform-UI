@@ -15,7 +15,16 @@ b
 *::after {
   box-sizing: border-box;
 }
-
+.mat-tab-label{
+padding: 0 10px !important;
+}
+.mat-tab-label-active {
+  border-radius: 2px 35px 2px 2px !important;
+  background: linear-gradient(60deg, #5cc2ce47, #b7cbce) !important;
+}
+.mat-tab-label:focus:not(.mat-tab-disabled) {
+  opacity: 0.8 !important; 
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -1026,8 +1035,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .no-gutters {
@@ -17520,7 +17529,8 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-info,
 .card.card-rotate.bg-info .front,
 .card.card-rotate.bg-info .back {
-  background: linear-gradient(60deg, #26c6da, #00acc1);
+  background: linear-gradient(60deg, #5cc2ce, #b7cbce);
+  /* background: linear-gradient(60deg, #5cc2ce, #b7cbce); */
 }
 
 .card .card-header-success .card-icon,
@@ -17586,7 +17596,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card .card-header-info .card-icon,
 .card .card-header-info:not(.card-header-icon):not(.card-header-text),
 .card .card-header-info .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(0 188 212 / 23%);
 }
 
 .card .card-header-success .card-icon,
@@ -17853,7 +17863,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
   border-radius: 3px;
   margin-top: -20px;
-  padding: 10px;
+  padding: 6px;
 }
 
 .card [class*="card-header-"] .card-icon,

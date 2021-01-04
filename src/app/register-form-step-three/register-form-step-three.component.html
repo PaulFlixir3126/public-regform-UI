@@ -1,145 +1,236 @@
 <div class="container-fluid">
   <form [formGroup]="other_details" aria-autocomplete="none" autocomplete="off">
-  <div class="row">
-    <div class="card">
-      <div class="card-header card-header-tabs card-header-info">
-        <div class="nav-tabs-navigation">
-          <div class="nav-tabs-wrapper">
-            <h5 class="card-title">Other Details</h5>
+    <div class="row">
+      <div class="card">
+        <div class="card-header card-header-tabs card-header-info">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <h5 class="card-title">Other Details</h5>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 ml-5 pt-3">
-          <mat-form-field class="example-full-width">
-            <mat-label
-              >3.1 Does the candidate himself is an ex-serviceman of the regular
-              Armed Forces?
-            </mat-label>
-            <select  id="ex_serviceman" formControlName="ex_serviceman" name="ex_serviceman" matNativeControl required>
-              <option value=""></option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </mat-form-field>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label
+                >3.1 Does the candidate himself is an ex-serviceman of the
+                regular Armed Forces?
+              </mat-label>
+              <select
+                id="ex_serviceman"
+                formControlName="ex_serviceman"
+                name="ex_serviceman"
+                matNativeControl
+                required
+              >
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label
+                >3.1.1 If the candidate himself is an Ex-serviceman, divison of
+                the Armed Forces
+              </mat-label>
+              <select
+                id="ex_serviceman_division"
+                formControlName="ex_serviceman_division"
+                name="ex_serviceman_division"
+                matNativeControl
+                required
+              >
+                <option value=""></option>
+                <option value="army">army</option>
+                <option value="airforce">airforce</option>
+              </select>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="offset-md-1 col-md-5 pt-3 pl-0">
-          <mat-form-field class="example-full-width">
-            <mat-label
-              >3.1.1 If the candidate himself is an Ex-serviceman, divison of
-              the Armed Forces
-            </mat-label>
-            <select id="ex_serviceman_division" formControlName="ex_serviceman_division" name="ex_serviceman_division" matNativeControl required>
-              <option value=""></option>
-              <option value="army">army</option>
-              <option value="airforce">airforce</option>
-            </select>
-          </mat-form-field>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label
+                >1.2 Date of appointment in regular Armed Forces</mat-label
+              >
+              <input
+                id="date_of_appointment"
+                formControlName="date_of_appointment"
+                name="date_of_appointment"
+                type="date"
+                matInput
+                placeholder="31/12/2021"
+              />
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label
+                >3.1.3 Date of retirement (Discharge) in regular Armed
+                Forces</mat-label
+              >
+              <input
+                id="date_of_retirement"
+                formControlName="date_of_retirement"
+                name="date_of_retirement"
+                type="date"
+                matInput
+                placeholder="31/12/2021"
+              />
+            </mat-form-field>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 ml-5 pt-3">
-          <mat-form-field class="example-full-width">
-            <mat-label
-              >1.2 Date of appointment in regular Armed Forces</mat-label
-            >
-            <input id="date_of_appointment" formControlName="date_of_appointment" name="date_of_appointment" type="date" matInput placeholder="31/12/2021" />
-          </mat-form-field>
-        </div>
-        <div class="offset-md-1 col-md-5 pt-3 pl-0">
-          <mat-form-field class="example-full-width">
-            <mat-label
-              >3.1.3 Date of retirement (Discharge) in regular Armed
-              Forces</mat-label
-            >
-            <input id="date_of_retirement" formControlName="date_of_retirement" name="date_of_retirement" type="date" matInput placeholder="31/12/2021" />
-          </mat-form-field>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-5 ml-5 pt-3">
-          <mat-form-field class="example-full-width">
-            <mat-label>3.1.4 Discharge certificate number</mat-label>
-            <input id="certificate_no" formControlName="certificate_no" name="certificate_no" type="text" matInput placeholder="1234" />
-          </mat-form-field>
+        <div class="row">
+          <div class="col-md-5 ml-5 pt-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>3.1.4 Discharge certificate number</mat-label>
+              <input
+                id="certificate_no"
+                formControlName="certificate_no"
+                name="certificate_no"
+                type="text"
+                matInput
+                placeholder="1234"
+              />
+            </mat-form-field>
+          </div>
+          <div class="offset-md-1 col-md-5 pt-1 pl-0">
+            <mat-form-field class="example-full-width">
+              <mat-label>3.5 Are you a Meritorious Sports Person? </mat-label>
+              <select
+                id="sports_person"
+                formControlName="sports_person"
+                name="sports_person"
+                matNativeControl
+                required
+              >
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="offset-md-1 col-md-5 pt-3 pl-0">
-          <mat-form-field class="example-full-width">
-            <mat-label>3.5 Are you a Meritorious Sports Person? </mat-label>
-            <select id="sports_person" formControlName="sports_person" name="sports_person" matNativeControl required>
-              <option value=""></option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 pt-3">
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class="text-info">
-                  <th>SrNo.</th>
-                  <th>Name of the Game</th>
-                  <th>Position/Medal</th>
-                  <th>Period of Tournament From</th>
-                  <th>Period of Tournament To</th>
-                  <th>Level of Tournament</th>
-                  <th>Certificate elgible for Group</th>
-                  <th>Action</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>
+        <div class="row">
+          <div class="col-md-12 pt-3">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-info">
+                    <th>SrNo.</th>
+                    <th>Name of the Game</th>
+                    <th>Position/Medal</th>
+                    <th>Period of Tournament From</th>
+                    <th>Period of Tournament To</th>
+                    <th>Level of Tournament</th>
+                    <th>Certificate elgible for Group</th>
+                    <th>Action</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <input id="name_of_game" formControlName="name_of_game" name="name_of_game" type="text" matInput placeholder="ABCD" />
+                          <input
+                            id="name_of_game"
+                            formControlName="name_of_game"
+                            name="name_of_game"
+                            type="text"
+                            matInput
+                            placeholder="ABCD"
+                          />
                         </mat-form-field>
-                    </td>
-                    <td>
+                      </td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <input id="position_medal" formControlName="position_medal" name="position_medal" type="text" matInput placeholder="Eg.." />
+                          <input
+                            id="position_medal"
+                            formControlName="position_medal"
+                            name="position_medal"
+                            type="text"
+                            matInput
+                            placeholder="Eg.."
+                          />
                         </mat-form-field>
-                    </td>
-                    <td>
+                      </td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <input id="tournament_from" formControlName="tournament_from" name="tournament_from" type="date" matInput placeholder="31/12/2021" />
-                          </mat-form-field>
-                    </td>
-                    <td>
+                          <input
+                            id="tournament_from"
+                            formControlName="tournament_from"
+                            name="tournament_from"
+                            type="date"
+                            matInput
+                            placeholder="31/12/2021"
+                          />
+                        </mat-form-field>
+                      </td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <input id="tournament_to" formControlName="tournament_to" name="tournament_to" type="date" matInput placeholder="31/12/2021" />
-                          </mat-form-field>
-                    </td>
-                    <td>
+                          <input
+                            id="tournament_to"
+                            formControlName="tournament_to"
+                            name="tournament_to"
+                            type="date"
+                            matInput
+                            placeholder="31/12/2021"
+                          />
+                        </mat-form-field>
+                      </td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <select id="level_of_tournament" formControlName="level_of_tournament" name="level_of_tournament" matNativeControl required>
-                                <option value=""></option>
-                                <option value="State">State</option>
-                                <option value="National">National</option>
-                            </select>
-                          </mat-form-field>
-                    </td>
-                    <td>
+                          <select
+                            id="level_of_tournament"
+                            formControlName="level_of_tournament"
+                            name="level_of_tournament"
+                            matNativeControl
+                            required
+                          >
+                            <option value=""></option>
+                            <option value="State">State</option>
+                            <option value="National">National</option>
+                          </select>
+                        </mat-form-field>
+                      </td>
+                      <td>
                         <mat-form-field class="example-full-width">
-                            <select id="tournament_certificate_no" formControlName="tournament_certificate_no" name="tournament_certificate_no" matNativeControl required>
-                                <option value=""></option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                            </select>
-                          </mat-form-field>
-                    </td>
-                    <td class="text-center"> <button class="btn btn-info btn-sm btn-round">Add</button></td>
-                  </tr>
-                </tbody>
-              </table>
+                          <select
+                            id="tournament_certificate_no"
+                            formControlName="tournament_certificate_no"
+                            name="tournament_certificate_no"
+                            matNativeControl
+                            required
+                          >
+                            <option value=""></option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                          </select>
+                        </mat-form-field>
+                      </td>
+                      <td class="text-center">
+                        <button class="btn btn-info btn-sm btn-round">
+                          Add
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="row mb-3">
+      <div class="col-md-6 text-left">
+        <button class="btn btn-info btn-round ">Previous</button>
+      </div>
+      <div class="col-md-6 text-right ">
+        <button class="btn btn-info btn-round ">Save and Continue</button>
+      </div>
+    </div>
   </form>
 </div>

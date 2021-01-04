@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { restApiService } from "../providers/apiService.service";
 @Component({
   selector: 'app-register-form-step-six',
   templateUrl: './register-form-step-six.component.html',
@@ -9,7 +10,8 @@ export class RegisterFormStepSixComponent implements OnInit {
 
   upload_details: FormGroup;
   constructor(
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    public restApiService : restApiService) { }
 
   ngOnInit() {
     this.upload_details = this.fb.group({
@@ -24,12 +26,15 @@ addupload_details() {
     "file_name" : this.upload_details.value["file_name"],
     "file_extension" : this.upload_details.value["file_extension"],
   }
-/* this.accAPIService.addaccount(payload).subscribe(res => {
-  if (res) {
-    console.log(res);
-   
-  } else {
-  }
-});*/
+  this.restApiService.personalInfoCreation(payload).subscribe((res) => {
+    if (res) {
+      if (res.status == true) {
+        this.restApiService.openSnackbar(res.message);
+      } else {
+        this.restApiService.openSnackbar(res.message);
+      }
+    } else {
+    }
+  });
 }
 }
