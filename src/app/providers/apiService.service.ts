@@ -32,31 +32,38 @@ export class restApiService {
   }
 
   addressInfoCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/sector", Payload)
+    return this.http.post(this.APIService + "/register/user/address", Payload)
       .pipe(
-        tap(heroes => this.log(`Created Sector`)),
+        tap(heroes => this.log(`Created address`)),
       );
   }
 
   othersInfoCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/sector", Payload)
+    return this.http.post(this.APIService + "/register/user/other", Payload)
       .pipe(
-        tap(heroes => this.log(`Created Sector`)),
+        tap(heroes => this.log(`Created others`)),
       );
   }
 
   qualificationInfoCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/sector", Payload)
+    return this.http.post(this.APIService + "/register/user/qualification", Payload)
       .pipe(
-        tap(heroes => this.log(`Created Sector`)),
+        tap(heroes => this.log(`Created qualification`)),
       );
   }
   experInfoCreation(Payload): Observable<any> {
-    return this.http.post(this.APIService + "/sector", Payload)
+    return this.http.post(this.APIService + "/register/user/experience", Payload)
       .pipe(
-        tap(heroes => this.log(`Created Sector`)),
+        tap(heroes => this.log(`Created exp`)),
       );
   }
+
+  // experInfoCreation(Payload): Observable<any> {
+  //   return this.http.post(this.APIService + "/register/user/experience", Payload)
+  //     .pipe(
+  //       tap(heroes => this.log(`Created exp`)),
+  //     );
+  // }
 
   openSnackbar(message: string) {
     return this.snackBar.open(message, "close",

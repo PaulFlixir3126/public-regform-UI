@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-5 ml-5 pt-1">
+          <div class="col-md-5 ml-4 pt-1">
             <mat-form-field class="example-full-width">
               <mat-label>5.1 Employment (Present/Past) </mat-label>
               <select
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-5 ml-5 pt-1">
+          <div class="col-md-5 ml-4 pt-1">
             <mat-form-field class="example-full-width">
               <mat-label
                 >5.3 Institution / Department / Organisation
@@ -85,7 +85,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 ml-5 pt-1">
+          <div class="col-md-5 ml-4 pt-1">
             <mat-form-field class="example-full-width">
               <mat-label>5.5 Pay Band/ Pay Scale </mat-label>
               <input
@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-5 ml-5 pt-1">
+          <div class="col-md-5 ml-4 pt-1">
             <mat-form-field class="example-full-width">
               <mat-label>5.7 Monthly Gross Salary </mat-label>
               <input
@@ -129,15 +129,15 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 pt-3">
-            <div class="card-body">
+          <div class="col-md-12 pt-0">
+            <div class="card-body pt-0">
               <div class="table-responsive">
                 <table class="table">
                   <thead class="text-info">
                     <th>SlNo.</th>
-                    <th>Institution / Department / Organisation</th>
-                    <th>Is Office/Institute owned byGovt. of Maharashtra</th>
-                    <th>Pay Band/ Pay Scale</th>
+                    <th>Organisation</th>
+                    <th>Is Office owned by Govt. of Maharashtra</th>
+                    <th>Pay Scale</th>
                     <th>Basic Pay</th>
                     <th>Monthly Gross</th>
                     <th>Action</th>
@@ -150,7 +150,9 @@
                       <td>ASHKIY H</td>
                       <td>45000</td>
                       <td>55000</td>
-                      <td>remove</td>
+                      <td> <button class="btn btn-info btn-sm btn-round">
+                        Edit
+                      </button></td>
                     </tr>
                   </tbody>
                 </table>
@@ -165,7 +167,7 @@
         <button class="btn btn-info btn-round ">Previous</button>
       </div>
       <div class="col-md-6 text-right ">
-        <button class="btn btn-info btn-round ">Save and Continue</button>
+        <button class="btn btn-info btn-round "(click)="addexperience_details()">Save and Continue</button>
       </div>
     </div>
   </form>
