@@ -57,6 +57,13 @@ export class restApiService {
         tap(heroes => this.log(`Created exp`)),
       );
   }
+  userCreation(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/create/user", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created user`)),
+      );
+  }
+  
 
   // experInfoCreation(Payload): Observable<any> {
   //   return this.http.post(this.APIService + "/register/user/experience", Payload)

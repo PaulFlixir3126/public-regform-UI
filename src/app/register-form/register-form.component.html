@@ -1,69 +1,154 @@
-<div class="container minh" >
-  <div class="row mt-3">
-    <div class="col-md-10 offset-md-1">
+<form [formGroup]="userCreation" aria-autocomplete="none" autocomplete="off">
+  <div class="container minh">
+    <div class="row mt-3">
+      <div class="col-md-10 offset-md-1">
         <div class="card">
-            <div class="card-header card-header-tabs card-header-info" >
-              <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                  <h5 class="card-title"> Login Details</h5>
-                </div>
+          <div class="card-header card-header-tabs card-header-info">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <h5 class="card-title">Login Details</h5>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-5 ml-5 pt-3">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>User Name *</mat-label>
-                      <input type="text" matInput  placeholder="John Mike..">
-                    </mat-form-field>
-                </div>
-                <div class="offset-md-1 col-md-5 pt-3 pl-0">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>Date of Birth*</mat-label>
-                      <input type="date" matInput  placeholder="31/12/2021">
-                    </mat-form-field>
-                </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 ml-5 pt-3">
+              <mat-form-field class="example-full-width">
+                <mat-label>User Name *</mat-label>
+                <input
+                  id="username"
+                  formControlName="username"
+                  name="username"
+                  type="text"
+                  matInput
+                  placeholder="John Mike.."
+                />
+                <mat-error
+                  *ngIf="userCreation.get('username').hasError('required')"
+                >
+                  User Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
             </div>
-            <div class="row">
-              <div class="col-md-4 ml-5 ">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>Email*</mat-label>
-                      <input type="email" matInput  placeholder="Ex. pat@example.com">
-                    </mat-form-field>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-sm btn-info btn-round mt-3" (click)="getOtp('email')"> Get Otp</button>
-                </div>
-                <div class=" col-md-3 pl-0">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>Mobile No.*</mat-label>
-                      <input type="text" matInput  placeholder="+91-8123412685" autocomplete="false">
-                    </mat-form-field>
-                </div>
-                <div class="col-md-2">
-                  <button class="btn btn-sm btn-info btn-round mt-3" (click)="getOtp('phone')"> Get Otp</button>
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5 ml-5 ">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>Password *</mat-label>
-                      <input type="password" matInput  placeholder="Test@123">
-                    </mat-form-field>
-                </div>
-                <div class="offset-md-1 col-md-5 pl-0">
-                  <mat-form-field class="example-full-width">
-                      <mat-label>Confirm Password *</mat-label>
-                      <input type="text" matInput  placeholder="...">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-12 text-center">
-                  <button class="btn btn-info btn-round mr-1"> Register</button>
-                  <button class="btn btn-info btn-round ml-1"> Reset</button>
-                </div>
+            <div class="offset-md-1 col-md-5 pt-3 pl-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Date of Birth*</mat-label>
+                <input
+                  id="dob"
+                  formControlName="dob"
+                  name="dob"
+                  type="date"
+                  matInput
+                  placeholder="31/12/2021"
+                />
+                <mat-error
+                  *ngIf="userCreation.get('dob').hasError('required')"
+                >
+                  Date of birth is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
             </div>
           </div>
-       </div>    
+          <div class="row">
+            <div class="col-md-4 ml-5">
+              <mat-form-field class="example-full-width">
+                <mat-label>Email*</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  id="email"
+                  formControlName="email"
+                  name="email"
+                  placeholder="Ex. pat@example.com"
+                />
+                <mat-error
+                  *ngIf="userCreation.get('email').hasError('required')"
+                >
+                  User Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-2">
+              <button
+                class="btn btn-sm btn-info btn-round mt-3"
+                (click)="getOtp('email')"
+              >
+                Get Otp
+              </button>
+            </div>
+            <div class="col-md-3 pl-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Mobile No.*</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  id="mobile_no"
+                  formControlName="mobile_no"
+                  name="mobile_no"
+                  placeholder="+91-8123412685"
+                  autocomplete="false"
+                />
+                <mat-error
+                  *ngIf="userCreation.get('mobile_no').hasError('required')"
+                >
+                Mobile No is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-2">
+              <button
+                class="btn btn-sm btn-info btn-round mt-3"
+                (click)="getOtp('phone')"
+              >
+                Get Otp
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 ml-5">
+              <mat-form-field class="example-full-width">
+                <mat-label>Password *</mat-label>
+                <input
+                  id="password"
+                  formControlName="password"
+                  name="password"
+                  type="password"
+                  matInput
+                  placeholder="Test@123"
+                />
+                <mat-error
+                  *ngIf="userCreation.get('password').hasError('required')"
+                >
+                 Enter a password
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="offset-md-1 col-md-5 pl-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Confirm Password *</mat-label>
+                <input
+                  id="confirmPassword"
+                  formControlName="confirmPassword"
+                  name="confirmPassword"
+                  type="text"
+                  matInput
+                  placeholder="..."
+                />
+                <mat-error
+                  *ngIf="userCreation.get('password').hasError('required') && userCreation.get('password').value != userCreation.get('password')"
+                >
+                  Password missmatch / should not be empty
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 text-center">
+              <button class="btn btn-info btn-round mr-1" (click)="adduserCreation()">Register</button>
+              <button class="btn btn-info btn-round ml-1">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</form>
