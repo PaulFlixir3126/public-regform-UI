@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 
 @Component({
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public snackBar: MatSnackBar,
     private restApiService: restApiService,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService,
     private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -41,6 +44,7 @@ export class HomeComponent implements OnInit {
           // console.log(res);
           if (res.status == true) {
             this.restApiService.openSnackbar(res.message);
+            this.sessionstorge.set('ref_user_id', res.data[0].user_id);
             this.redirect('register/home')
           } else {
             this.restApiService.openSnackbar(res.message);

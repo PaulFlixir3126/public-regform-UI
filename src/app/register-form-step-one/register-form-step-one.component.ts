@@ -8,6 +8,7 @@ import {
   Validators,
 } from "@angular/forms";
 import {ErrorStateMatcher} from '@angular/material/core';
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 export class steponeError implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -25,7 +26,9 @@ export class RegisterFormStepOneComponent implements OnInit {
   refUserId: 0;
   constructor(
     private restApiService: restApiService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService
   ) {}
 
   ngOnInit() {
@@ -48,6 +51,8 @@ export class RegisterFormStepOneComponent implements OnInit {
       certificate_no: new FormControl(''),
       issue_date: new FormControl(''),
     });
+
+    this.refUserId = this.sessionstorge.get('ref_user_id');
   }
   matcher = new steponeError();
   addpersonal_details() {

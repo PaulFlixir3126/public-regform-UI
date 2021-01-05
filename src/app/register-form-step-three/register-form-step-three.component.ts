@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 @Component({
   selector: "app-register-form-step-three",
@@ -13,7 +14,10 @@ import { restApiService } from "../providers/apiService.service";
 })
 export class RegisterFormStepThreeComponent implements OnInit {
   other_details: FormGroup;
-  constructor(private fb: FormBuilder, public restApiService: restApiService) {}
+  refUserId: any;
+  constructor(private fb: FormBuilder,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService, public restApiService: restApiService) {}
 
   ngOnInit() {
     this.other_details = this.fb.group({
@@ -30,10 +34,12 @@ export class RegisterFormStepThreeComponent implements OnInit {
       level_of_tournament: new FormControl(''),
       tournament_certificate_no: new FormControl(''),
     });
+    this.refUserId = this.sessionstorge.get('ref_user_id');
   }
   addother_details() {
     console.log(this.other_details.value);
     let payload = {
+      ref_user_id: this.refUserId,
       ex_serviceman: this.other_details.value["ex_serviceman"],
       ex_serviceman_division: this.other_details.value[
         "ex_serviceman_division"

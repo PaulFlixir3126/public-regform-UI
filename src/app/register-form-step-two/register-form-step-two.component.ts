@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 
 @Component({
@@ -14,7 +15,10 @@ import { restApiService } from "../providers/apiService.service";
 })
 export class RegisterFormStepTwoComponent implements OnInit {
   address_details: FormGroup;
-  constructor(private fb: FormBuilder, public restApiService: restApiService) {}
+  refUserId: any;
+  constructor(private fb: FormBuilder,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService, public restApiService: restApiService) {}
 
   ngOnInit() {
     this.address_details = this.fb.group({
@@ -25,10 +29,12 @@ export class RegisterFormStepTwoComponent implements OnInit {
       state: new FormControl('', [Validators.required]),
       pincode: new FormControl('', [Validators.required]),
     });
+    this.refUserId = this.sessionstorge.get('ref_user_id');
   }
   addaddress_details() {
     console.log(this.address_details.value);
     let payload = {
+      ref_user_id: this.refUserId,
       address_no: this.address_details.value["address_no"],
       premises_building: this.address_details.value["premises_building"],
       locality: this.address_details.value["locality"],

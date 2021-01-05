@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 @Component({
   selector: "app-register-form-step-four",
@@ -13,8 +14,11 @@ import { restApiService } from "../providers/apiService.service";
 })
 export class RegisterFormStepFourComponent implements OnInit {
   qualification_details: FormGroup;
+  refUserId: any;
 
-  constructor(private fb: FormBuilder,private restApiService: restApiService,) {}
+  constructor(private fb: FormBuilder,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService,private restApiService: restApiService,) {}
 
   ngOnInit() {
     this.qualification_details = this.fb.group({
@@ -25,10 +29,12 @@ export class RegisterFormStepFourComponent implements OnInit {
       precentage: new FormControl(''),
       remark: new FormControl(''),
     });
+    this.refUserId = this.sessionstorge.get('ref_user_id');
   }
   addqualification_details() {
     console.log(this.qualification_details.value);
     let payload = {
+      ref_user_id: this.refUserId,
       q_type: this.qualification_details.value["q_type"],
       name_of_degree: this.qualification_details.value["name_of_degree"],
       subject: this.qualification_details.value["subject"],

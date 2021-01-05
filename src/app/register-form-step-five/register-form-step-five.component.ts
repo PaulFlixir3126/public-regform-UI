@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
 @Component({
   selector: "app-register-form-step-five",
@@ -13,9 +14,12 @@ import { restApiService } from "../providers/apiService.service";
 })
 export class RegisterFormStepFiveComponent implements OnInit {
   experience_details: FormGroup;
+  refUserId: any;
 
   constructor(
     private fb: FormBuilder,
+    private ls: LocalStorageService,
+    private sessionstorge: SessionStorageService,
     private restApiService: restApiService
   ) {}
 
@@ -28,11 +32,13 @@ export class RegisterFormStepFiveComponent implements OnInit {
       pay_scale: new FormControl(''),
       basic_pay: new FormControl(''),
       gross_salary: new FormControl(''),
-    });
+    });   
+     this.refUserId = this.sessionstorge.get('ref_user_id');
   }
   addexperience_details() {
     console.log(this.experience_details.value);
     let payload = {
+      ref_user_id: this.refUserId,
       emp_present_past: this.experience_details.value["emp_present_past"],
       selected_mpsc: this.experience_details.value["selected_mpsc"],
       organisation: this.experience_details.value["organisation"],
