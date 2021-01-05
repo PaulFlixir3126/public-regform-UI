@@ -10,6 +10,7 @@ import {
 import {ErrorStateMatcher} from '@angular/material/core';
 import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
+import { RegisterFormStepsComponent } from '../register-form-steps/register-form-steps.component';
 export class steponeError implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -28,7 +29,8 @@ export class RegisterFormStepOneComponent implements OnInit {
     private restApiService: restApiService,
     private fb: FormBuilder,
     private ls: LocalStorageService,
-    private sessionstorge: SessionStorageService
+    private sessionstorge: SessionStorageService,
+    public RegisterForm: RegisterFormStepsComponent
   ) {}
 
   ngOnInit() {
@@ -52,7 +54,6 @@ export class RegisterFormStepOneComponent implements OnInit {
       issue_date: new FormControl(''),
     });
     this.refUserId = this.sessionstorge.get('ref_user_id');
-    alert(this.refUserId);
     if(this.refUserId != 0 || this.refUserId != undefined || this.refUserId != null ){
       this.reloadPersonalDetails()
     }
@@ -87,6 +88,7 @@ export class RegisterFormStepOneComponent implements OnInit {
           // console.log(res);
           if (res.status == true) {
             this.restApiService.openSnackbar(res.message);
+            this.functionNext();
           } else {
             this.restApiService.openSnackbar(res.message);
           }
@@ -100,7 +102,6 @@ export class RegisterFormStepOneComponent implements OnInit {
   }
 
   reloadPersonalDetails(){
-    alert("dcdfdf")
     this.restApiService.getPersonalDetails(this.refUserId).subscribe((res) => {
         if (res.status == true) {
           this.personal_details = this.fb.group({
@@ -117,7 +118,7 @@ export class RegisterFormStepOneComponent implements OnInit {
             marital_status: new FormControl(res.data[0].marital_status, [Validators.required]),
             nationality: new FormControl(res.data[0].nationality),
             height: new FormControl(res.data[0].height),
-            weight: new FormControl(res.data[0].dob),
+            weight: new FormControl(res.data[0].weight),
             caste_category: new FormControl(res.data[0].caste_category),
             certificate_no: new FormControl(res.data[0].certificate_no),
             issue_date: new FormControl(res.data[0].issue_date)
@@ -127,5 +128,12 @@ export class RegisterFormStepOneComponent implements OnInit {
           this.restApiService.openSnackbar(res.message);
         }
     });
+  }
+
+  functionNext(){
+    this.RegisterForm.loadtabindex(1);
+  }
+  functionPrevious(){
+    this.RegisterForm.loadtabindex(0);
   }
 }

@@ -53,17 +53,21 @@ export class RegisterFormStepFiveComponent implements OnInit {
       basic_pay: this.experience_details.value["basic_pay"],
       gross_salary: this.experience_details.value["gross_salary"],
     };
-    this.restApiService.experInfoCreation(payload).subscribe((res) => {
-      if (res) {
-        if (res.status == true) {
-          this.restApiService.openSnackbar(res.message);
-          this.functionNext();
+    if(this.experience_details.valid){
+      this.restApiService.experInfoCreation(payload).subscribe((res) => {
+        if (res) {
+          if (res.status == true) {
+            this.restApiService.openSnackbar(res.message);
+            this.functionNext();
+          } else {
+            this.restApiService.openSnackbar(res.message);
+          }
         } else {
-          this.restApiService.openSnackbar(res.message);
         }
-      } else {
-      }
-    });
+      });
+    }else{
+      this.restApiService.openSnackbar('Please fill required fields');
+    }
   }
   addexperience_detailsMore() {
     let payload = {
@@ -78,25 +82,26 @@ export class RegisterFormStepFiveComponent implements OnInit {
       basic_pay: this.experience_details.value["basic_pay"],
       gross_salary: this.experience_details.value["gross_salary"],
     };
-    this.restApiService.experInfoCreation(payload).subscribe((res) => {
-      if (res) {
-        if (res.status == true) {
-          this.restApiService.openSnackbar(res.message);
-          this.experience_details = this.fb.group({
-            emp_present_past: new FormControl('', [Validators.required]),
-            selected_mpsc: new FormControl('', [Validators.required]),
-            organisation: new FormControl('', [Validators.required]),
-            office_inst_own_govt: new FormControl('', [Validators.required]),
-            pay_scale: new FormControl(''),
-            basic_pay: new FormControl(''),
-            gross_salary: new FormControl(''),
-          });   
-        } else {
-          this.restApiService.openSnackbar(res.message);
-        }
-      } else {
-      }
-    });
+    if(this.experience_details.valid){
+      this.restApiService.experInfoCreation(payload).subscribe((res) => {
+          if (res.status == true) {
+            this.restApiService.openSnackbar(res.message);
+            this.experience_details = this.fb.group({
+              emp_present_past: new FormControl('', [Validators.required]),
+              selected_mpsc: new FormControl('', [Validators.required]),
+              organisation: new FormControl('', [Validators.required]),
+              office_inst_own_govt: new FormControl('', [Validators.required]),
+              pay_scale: new FormControl(''),
+              basic_pay: new FormControl(''),
+              gross_salary: new FormControl(''),
+            });   
+          } else {
+            this.restApiService.openSnackbar(res.message);
+          }
+      });
+    }else{
+      this.restApiService.openSnackbar('Please fill required fields');
+    }
   }
 edit(editttt){
   this.exprience_idRef = editttt;

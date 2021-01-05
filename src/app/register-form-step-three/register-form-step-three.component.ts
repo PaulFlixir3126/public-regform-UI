@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { restApiService } from "../providers/apiService.service";
+import { RegisterFormStepsComponent } from '../register-form-steps/register-form-steps.component';
 @Component({
   selector: "app-register-form-step-three",
   templateUrl: "./register-form-step-three.component.html",
@@ -17,6 +18,7 @@ export class RegisterFormStepThreeComponent implements OnInit {
   refUserId: any;
   constructor(private fb: FormBuilder,
     private ls: LocalStorageService,
+    public RegisterForm: RegisterFormStepsComponent,
     private sessionstorge: SessionStorageService, public restApiService: restApiService) {}
 
   ngOnInit() {
@@ -35,9 +37,11 @@ export class RegisterFormStepThreeComponent implements OnInit {
       tournament_certificate_no: new FormControl(''),
     });
     this.refUserId = this.sessionstorge.get('ref_user_id');
+    if(this.refUserId != 0 || this.refUserId != undefined || this.refUserId != null ){
+      this.reloadOthersDetails()
+    }
   }
   addother_details() {
-    console.log(this.other_details.value);
     let payload = {
       ref_user_id: this.refUserId,
       ex_serviceman: this.other_details.value["ex_serviceman"],
@@ -57,29 +61,50 @@ export class RegisterFormStepThreeComponent implements OnInit {
         "tournament_certificate_no"
       ],
     };
-    this.restApiService.othersInfoCreation(payload).subscribe((res) => {
-      if (res) {
-        if (res.status == true) {
-          this.restApiService.openSnackbar(res.message);
+    if(this.other_details.valid){
+      this.restApiService.othersInfoCreation(payload).subscribe((res) => {
+        if (res) {
+          if (res.status == true) {
+            this.restApiService.openSnackbar(res.message);
+            this.functionNext();
+          } else {
+            this.restApiService.openSnackbar(res.message);
+          }
         } else {
-          this.restApiService.openSnackbar(res.message);
         }
-      } else {
-      }
-    });
+      });
+    }else{
+      this.restApiService.openSnackbar('Please fill required fields');
+    }
   }
 
   reloadOthersDetails(){
     this.restApiService.getOtherDetails(this.refUserId ).subscribe((res) => {
-      if (res) {
         if (res.status == true) {
-          console.log(res);
+          this.other_details = this.fb.group({
+            ex_serviceman: new FormControl(res.data[0].ex_serviceman, [Validators.required]),
+            ex_serviceman_division: new FormControl(res.data[0].ex_serviceman_division, [Validators.required]),
+            date_of_appointment: new FormControl(res.data[0].date_of_appointment),
+            date_of_retirement: new FormControl(res.data[0].date_of_retirement),
+            certificate_no: new FormControl(res.data[0].certificate_no),
+            sports_person: new FormControl(res.data[0].sports_person, [Validators.required]),
+            name_of_game: new FormControl(res.data[0].name_of_game),
+            position_medal: new FormControl(res.data[0].position_medal),
+            tournament_from: new FormControl(res.data[0].tournament_from),
+            tournament_to: new FormControl(res.data[0].tournament_to),
+            level_of_tournament: new FormControl(res.data[0].level_of_tournament),
+            tournament_certificate_no: new FormControl(res.data[0].tournament_certificate_no),
+          });
           this.restApiService.openSnackbar(res.message);
         } else {
           this.restApiService.openSnackbar(res.message);
         }
-      } else {
-      }
     });
+  }
+  functionNext(){
+    this.RegisterForm.loadtabindex(4);
+  }
+  functionPrevious(){
+    this.RegisterForm.loadtabindex(2);
   }
 }
