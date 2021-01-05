@@ -15,6 +15,8 @@ import { restApiService } from "../providers/apiService.service";
 export class RegisterFormStepFiveComponent implements OnInit {
   experience_details: FormGroup;
   refUserId: any;
+  exprience_idRef: any;
+  expriencesList: any;
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +36,7 @@ export class RegisterFormStepFiveComponent implements OnInit {
       gross_salary: new FormControl(''),
     });   
      this.refUserId = this.sessionstorge.get('ref_user_id');
+     this.reloadExprienceDetails();
   }
   addexperience_details() {
     console.log(this.experience_details.value);
@@ -60,12 +63,57 @@ export class RegisterFormStepFiveComponent implements OnInit {
       }
     });
   }
+edit(editttt){
+  this.exprience_idRef = editttt;
+  this.expriencesList.forEach(element => {
+    if(element.exprience_id ==  this.exprience_idRef){
+      this.experience_details = this.fb.group({
+        emp_present_past: new FormControl(element.emp_present_past, [Validators.required]),
+        selected_mpsc: new FormControl(element.selected_mpsc, [Validators.required]),
+        organisation: new FormControl(element.organisation, [Validators.required]),
+        office_inst_own_govt: new FormControl(element.office_inst_own_govt, [Validators.required]),
+        pay_scale: new FormControl(element.pay_scale),
+        basic_pay: new FormControl(element.basic_pay),
+        gross_salary: new FormControl(element.gross_salary),
+      }); 
+    }
+  });
+
+}
+  updateExpriencedetail(){
+  let payload = {
+    ref_user_id: this.refUserId,
+    exprience_id: this.exprience_idRef,
+    emp_present_past: this.experience_details.value["emp_present_past"],
+    selected_mpsc: this.experience_details.value["selected_mpsc"],
+    organisation: this.experience_details.value["organisation"],
+    office_inst_own_govt: this.experience_details.value[
+      "office_inst_own_govt"
+    ],
+    pay_scale: this.experience_details.value["pay_scale"],
+    basic_pay: this.experience_details.value["basic_pay"],
+    gross_salary: this.experience_details.value["gross_salary"],
+  };
+  this.restApiService.experInfoCreation(payload).subscribe((res) => {
+    if (res) {
+      if (res.status == true) {
+        this.restApiService.openSnackbar(res.message);
+      } else {
+        this.restApiService.openSnackbar(res.message);
+      }
+    } else {
+    }
+  });
+}
+  
+
 
   reloadExprienceDetails(){
     this.restApiService.getExperienceDetails(this.refUserId ).subscribe((res) => {
       if (res) {
         if (res.status == true) {
           console.log(res);
+          this.expriencesList = res.data;
           this.restApiService.openSnackbar(res.message);
         } else {
           this.restApiService.openSnackbar(res.message);

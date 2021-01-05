@@ -140,6 +140,9 @@
             <button class="btn btn-info btn-round" (click)="addexperience_details()">
               Add
             </button>
+            <button class="btn btn-info btn-round" (click)="updateExpriencedetail()">
+              Update
+            </button>
           </div>
           
         </div>
@@ -158,14 +161,15 @@
                     <th>Action</th>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>ASDFC</td>
+                    <tr  *ngFor="let Exp of expriencesList">
+                      <td>{{Exp.exprience_id}}</td>
+                      <td>{{Exp.organisation}}</td>
                       <!-- <td>No</td> -->
-                      <td>ASHKIY H</td>
-                      <td>45000</td>
-                      <td>55000</td>
-                      <td> <button class="btn btn-info btn-sm btn-round">
+                      <td>{{Exp.selected_mpsc}}</td>
+                      <td>{{Exp.pay_scale}}</td>
+                      <td>{{Exp.basic_pay}}</td>
+                      <td>{{Exp.gross_salary}}</td>
+                      <td> <button class="btn btn-info btn-sm btn-round" (click)="edit(Exp.exprience_id)">
                         Edit
                       </button></td>
                     </tr>
