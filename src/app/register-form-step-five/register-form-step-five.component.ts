@@ -19,6 +19,8 @@ export class RegisterFormStepFiveComponent implements OnInit {
   refUserId: any;
   exprience_idRef: any;
   expriencesList: any;
+  showUpdate: boolean = false;
+  showAdd: boolean = true;
   constructor(
     private fb: FormBuilder,
     private ls: LocalStorageService,
@@ -95,6 +97,7 @@ export class RegisterFormStepFiveComponent implements OnInit {
               basic_pay: new FormControl(''),
               gross_salary: new FormControl(''),
             });   
+            this.reloadExprienceDetails()
           } else {
             this.restApiService.openSnackbar(res.message);
           }
@@ -107,6 +110,8 @@ edit(editttt){
   this.exprience_idRef = editttt;
   this.expriencesList.forEach(element => {
     if(element.exprience_id ==  this.exprience_idRef){
+      this.showUpdate = true;
+      this.showAdd = false;
       this.experience_details = this.fb.group({
         emp_present_past: new FormControl(element.emp_present_past, [Validators.required]),
         selected_mpsc: new FormControl(element.selected_mpsc, [Validators.required]),
@@ -134,10 +139,13 @@ edit(editttt){
     basic_pay: this.experience_details.value["basic_pay"],
     gross_salary: this.experience_details.value["gross_salary"],
   };
-  this.restApiService.experInfoCreation(payload).subscribe((res) => {
+  this.restApiService.expirUpdate(payload).subscribe((res) => {
     if (res) {
       if (res.status == true) {
         this.restApiService.openSnackbar(res.message);
+        this.showUpdate = false;
+        this.showAdd = true;
+        this.reloadExprienceDetails();
       } else {
         this.restApiService.openSnackbar(res.message);
       }

@@ -16,4 +16,9 @@ export class RegisterFormStepsComponent implements OnInit {
   loadtabindex(e){
     this.tabIndex = e;
   }
+  // navigate(route_to){
+  //   this.router.navigate([route_to]);
+  // }
+
+
 }

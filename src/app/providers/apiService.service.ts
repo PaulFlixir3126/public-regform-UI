@@ -90,6 +90,13 @@ export class restApiService {
         tap(heroes => this.log(`fetched exp`)),
       );
   }
+  expirUpdate(Payload): Observable<any> {
+    return this.http.put(this.APIService + "/register/user/experience", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created exp`)),
+      );
+  }
+  
   // 
   userCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/create/user", Payload)

@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import '@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/* @import '@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 
 b
 /*     brand Colors              */
@@ -18,9 +20,17 @@ b
 .mat-tab-label{
 padding: 0 10px !important;
 }
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #526cff !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #556cff !important;
+}
 .mat-tab-label-active {
   border-radius: 2px 35px 2px 2px !important;
-  background: linear-gradient(60deg, #5cc2ce47, #b7cbce) !important;
+  background: linear-gradient(60deg, #0400ff, #7e98de) !important;
+  color: #fff !important;
 }
 .mat-tab-label:focus:not(.mat-tab-disabled) {
   opacity: 0.8 !important; 
@@ -15878,7 +15888,7 @@ html[dir="rtl"] .main-panel {
   float: left;
 }
 
-html[dir="rtl"] .sidebar,{
+html[dir="rtl"] .sidebar{
   text-align: right;
 }
 

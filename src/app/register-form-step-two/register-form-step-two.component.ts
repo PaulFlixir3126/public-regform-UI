@@ -48,6 +48,12 @@ export class RegisterFormStepTwoComponent implements OnInit {
       landmark: this.address_details.value["landmark"],
       state: this.address_details.value["state"],
       pincode: this.address_details.value["pincode"],
+      cor_address_no: '',
+      cor_premises_building:'',
+      cor_locality:'',
+      cor_landmark:'',
+      cor_state:'',
+      cor_pincode:''
     };
     if(this.address_details.valid){
       this.restApiService.addressInfoCreation(payload).subscribe((res) => {

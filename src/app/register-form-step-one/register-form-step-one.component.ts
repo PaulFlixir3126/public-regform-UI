@@ -42,7 +42,7 @@ export class RegisterFormStepOneComponent implements OnInit {
       full_name: new FormControl('', [Validators.required,Validators.maxLength(20)]),
       mother_name: new FormControl('', [Validators.required,Validators.maxLength(15)]),
       dob: new FormControl('', [Validators.required]),
-      gender: new FormControl('', [Validators.required]),
+      gender: new FormControl(1, [Validators.required]),
       mobile_no: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
       email_id: new FormControl('', [Validators.required,Validators.email,]),
       marital_status: new FormControl('', [Validators.required]),
@@ -64,7 +64,7 @@ export class RegisterFormStepOneComponent implements OnInit {
     let payload = {
       ref_user_id: this.refUserId,
       holding_aadhar: this.personal_details.value["holding_aadhar"],
-      aadhar_no: this.personal_details.value["addraadhar_noess"],
+      aadhar_no: this.personal_details.value["aadhar_no"],
       aadhar_name: this.personal_details.value["aadhar_name"],
       salutation: this.personal_details.value["salutation"],
       full_name: this.personal_details.value["full_name"],

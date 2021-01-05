@@ -102,9 +102,9 @@ export class RegisterFormStepThreeComponent implements OnInit {
     });
   }
   functionNext(){
-    this.RegisterForm.loadtabindex(4);
+    this.RegisterForm.loadtabindex(3);
   }
   functionPrevious(){
-    this.RegisterForm.loadtabindex(2);
+    this.RegisterForm.loadtabindex(1);
   }
 }
