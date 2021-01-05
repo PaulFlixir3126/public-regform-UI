@@ -2,3 +2,54 @@
 .minh{
     min-height: 37rem !important;
   }
+  .nalika-profile {
+    /* padding: 20px; */
+    padding-left: 2.3rem;
+    position: relative;
+    z-index: 99999;
+    /* background: #1b2a47; */
+}
+.profile-dtl {
+  text-align: center;
+}
+.profile-dtl img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  /* border: 2px solid #152036; */
+}
+.fw{
+  font-weight: 500;
+}
+/* .sidebar .nav {
+    margin-top: 20px;
+    display: block;
+} */
+.w100{
+  width: 100%;
+}
+
+.cardheadder {
+  border-radius: 3px;
+    /* margin-top: -20px; */
+    padding: 6px;
+}
+/* .cardheadder  */ 
+.cardheadder:hover{
+  background: linear-gradient(60deg, #0400ffa6, #9cabd4) !important;
+  color:#ffff !important ;
+  cursor: pointer;
+}
+
+.cardheadder:active{
+  background: linear-gradient(60deg, #5cc2ce47, #b7cbce) !important;
+
+}
+
+.cardheadder-active{
+  border-radius: 3px;
+  padding: 6px;
+  background: linear-gradient(60deg, #0400ffa6, #9cabd4) !important;
+  color:#ffff !important ;
+  cursor: pointer;
+}
