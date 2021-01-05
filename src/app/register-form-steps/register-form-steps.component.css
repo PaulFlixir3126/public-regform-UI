@@ -2,6 +2,10 @@
 .minh{
     min-height: 37rem !important;
   }
+  .minhTab{
+    min-height: 40rem !important;
+  }
+
   .nalika-profile {
     /* padding: 20px; */
     padding-left: 2.3rem;

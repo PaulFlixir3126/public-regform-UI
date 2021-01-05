@@ -5,13 +5,8 @@
         <div class="row">
           <div class="col-md-3 pl-0">
             <div class="card mt-2 minheight">
-              <button
-                class="btn btn-info btn-round ml-3 mr-3 mt-3 mb-3"
-                (click)="redirect('register')"
-              >
-                New User Registration
-              </button>
-              <div class="row brtop pl-3 pr-3 pt-0 pt-3 text-center">
+              
+              <div class="row pl-3 pr-3 pt-0 pt-3 text-center">
                 <div
                   style="min-width: 100%"
                   class="m-0 p-0 card-header card-header-tabs card-header-info"
@@ -48,10 +43,16 @@
               >
                 Login
               </button>
-              <div class="row">
+              <div class="row brtop  pb-3 ">
                 <a class="pl-3 col-md-6 col-xs-12 fp9 pointer">forgot password</a>
                 <a class="pl-2 col-md-6 col-xs-12 fp9 pointer">reset password</a>
               </div>
+              <button
+                class="btn btn-info btn-round ml-3 mr-3 mt-3 mb-3"
+                (click)="redirect('register')"
+              >
+                New User Registration
+              </button>
             </div>
           </div>
           <div class="col-md-9">
