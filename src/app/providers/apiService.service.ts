@@ -63,6 +63,14 @@ export class restApiService {
         tap(heroes => this.log(`Created user`)),
       );
   }
+  
+  userLogin(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/user/login", Payload)
+      .pipe(
+        tap(heroes => this.log(`Login user`)),
+      );
+  }
+  
   sendEmailOtp(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/user/email/send", Payload)
       .pipe(

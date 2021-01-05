@@ -6,7 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { restApiService } from "../providers/apiService.service";
-
+import { Router } from '@angular/router';
 @Component({
   selector: "app-register-form",
   templateUrl: "./register-form.component.html",
@@ -23,7 +23,7 @@ export class RegisterFormComponent implements OnInit {
   verificationssd: any;
   constructor(
     private restApiService: restApiService,
-    private fb: FormBuilder
+    private fb: FormBuilder, private router: Router
   ) {}
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class RegisterFormComponent implements OnInit {
     });
   }
   adduserCreation() {
-    console.log(this.userCreation.value);
+    // console.log(this.userCreation.value);
     let payload = {
       username: this.userCreation.value["username"],
       dob: this.userCreation.value["dob"],
@@ -54,6 +54,7 @@ export class RegisterFormComponent implements OnInit {
           // console.log(res);
           if (res.status == true) {
             this.restApiService.openSnackbar(res.message);
+            this.router.navigate(['/home']);
           } else {
             this.restApiService.openSnackbar(res.message);
           }

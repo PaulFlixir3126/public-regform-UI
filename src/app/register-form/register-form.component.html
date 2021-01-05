@@ -46,6 +46,49 @@
               </mat-form-field>
             </div>
           </div>
+         
+          <div class="row">
+            <div class="col-md-5 ml-5">
+              <mat-form-field class="example-full-width">
+                <mat-label>Password *</mat-label>
+                <input
+                  id="password"
+                  formControlName="password"
+                  name="password"
+                  type="password"
+                  matInput
+                  placeholder="Test@123"
+                />
+                <mat-error
+                  *ngIf="userCreation.get('password').hasError('required')"
+                >
+                  Enter a password
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="offset-md-1 col-md-5 pl-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Confirm Password *</mat-label>
+                <input
+                  id="confirmPassword"
+                  formControlName="confirmPassword"
+                  name="confirmPassword"
+                  type="text"
+                  matInput
+                  placeholder="..."
+                />
+                <mat-error
+                  *ngIf="
+                    userCreation.get('password').hasError('required') &&
+                    userCreation.get('password').value !=
+                      userCreation.get('password')
+                  "
+                >
+                  Password missmatch / should not be empty
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-4 ml-5">
               <mat-form-field class="example-full-width">
@@ -146,48 +189,6 @@
               >
                 Verify Otp
               </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5 ml-5">
-              <mat-form-field class="example-full-width">
-                <mat-label>Password *</mat-label>
-                <input
-                  id="password"
-                  formControlName="password"
-                  name="password"
-                  type="password"
-                  matInput
-                  placeholder="Test@123"
-                />
-                <mat-error
-                  *ngIf="userCreation.get('password').hasError('required')"
-                >
-                  Enter a password
-                </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="offset-md-1 col-md-5 pl-0">
-              <mat-form-field class="example-full-width">
-                <mat-label>Confirm Password *</mat-label>
-                <input
-                  id="confirmPassword"
-                  formControlName="confirmPassword"
-                  name="confirmPassword"
-                  type="text"
-                  matInput
-                  placeholder="..."
-                />
-                <mat-error
-                  *ngIf="
-                    userCreation.get('password').hasError('required') &&
-                    userCreation.get('password').value !=
-                      userCreation.get('password')
-                  "
-                >
-                  Password missmatch / should not be empty
-                </mat-error>
-              </mat-form-field>
             </div>
           </div>
           <div class="row mb-3">

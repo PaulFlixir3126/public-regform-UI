@@ -1,75 +1,132 @@
-<div class="container minh">
-  <div class="row mt-3">
-    <div class="col-md-12 pl-0 pr-0">
-      <div class="row">
-        <div class="col-md-3 pl-0">
-          <div class="card mt-2 minheight">
-            <button class="btn btn-info btn-round ml-3 mr-3 mt-3 mb-3" (click)="redirect('register')">
-              New User Registration
-            </button>
-            <div class="row brtop pl-3 pr-3 pt-0 pt-3 text-center">
-                <div style="min-width: 100%;"class="m-0 p-0 card-header card-header-tabs card-header-info">
-                    <h4 class="mt-2 ">User login</h4>
+<form [formGroup]="userLogin" aria-autocomplete="none" autocomplete="off">
+  <div class="container minh">
+    <div class="row mt-3">
+      <div class="col-md-12 pl-0 pr-0">
+        <div class="row">
+          <div class="col-md-3 pl-0">
+            <div class="card mt-2 minheight">
+              <button
+                class="btn btn-info btn-round ml-3 mr-3 mt-3 mb-3"
+                (click)="redirect('register')"
+              >
+                New User Registration
+              </button>
+              <div class="row brtop pl-3 pr-3 pt-0 pt-3 text-center">
+                <div
+                  style="min-width: 100%"
+                  class="m-0 p-0 card-header card-header-tabs card-header-info"
+                >
+                  <h4 class="mt-2">User login</h4>
                 </div>
-            
-              <mat-form-field class="example-full-width">
-                <mat-label>User Name *</mat-label>
-                <input type="text" matInput placeholder="eg. Paul" />
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Password *</mat-label>
-                <input type="password" matInput placeholder="Pass@123" />
-              </mat-form-field>
-            </div>
-            <button class="btn btn-info btn-round ml-5 mr-5 mt-2 mb-1" (click)="login()">
-              Login
-            </button>
-            <div class="row">
-
-            <a class="pl-3 col-md-6 col-xs-12 fp9 pointer">forgot password</a>
-            <a class="pl-2 col-md-6 col-xs-12 fp9 pointer">reset password</a>
+  
+                <mat-form-field class="example-full-width mt-2">
+                  <mat-label>User Name *</mat-label>
+                  <input
+                    type="email"
+                    id="email"
+                    formControlName="email"
+                    name="email"
+                    matInput
+                    placeholder="eg. Paul"
+                  />
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password *</mat-label>
+                  <input
+                    id="password"
+                    formControlName="password"
+                    name="password"
+                    type="password"
+                    matInput
+                    placeholder="Pass@123"
+                  />
+                </mat-form-field>
+              </div>
+              <button
+                class="btn btn-info btn-round ml-5 mr-5 mt-2 mb-1"
+                (click)="login()"
+              >
+                Login
+              </button>
+              <div class="row">
+                <a class="pl-3 col-md-6 col-xs-12 fp9 pointer">forgot password</a>
+                <a class="pl-2 col-md-6 col-xs-12 fp9 pointer">reset password</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-9">
-          <div class="card mt-2">
-            <div class="row mt-3 mb-3">
+          <div class="col-md-9">
+            <div class="card mt-2">
+              <div class="row mt-3 mb-3">
                 <div class="col-md-4 pr-0">
-                    <div class="row">
-                        <div class="col-md-12 pr-0">
-                            <h4 class="fontw">MPSC Help Line</h4>
-                            <h5> <i class="fa fa-phone "></i>  022-22222222  </h5>
-                            <h5> <i class="fa fa-envelope "></i>   mpsc.support@mpsc.gov.in  </h5>
-                            <h5> <i class="fa fa-envelope "></i>  suvidha.mpsc.gov.in  </h5>
-                            <!-- <span class="lih">           </span> -->
-                        </div>
+                  <div class="row">
+                    <div class="col-md-12 pr-0">
+                      <h4 class="fontw">MPSC Help Line</h4>
+                      <h5><i class="fa fa-phone"></i> 022-22222222</h5>
+                      <h5>
+                        <i class="fa fa-envelope"></i> mpsc.support@mpsc.gov.in
+                      </h5>
+                      <h5><i class="fa fa-envelope"></i> suvidha.mpsc.gov.in</h5>
+                      <!-- <span class="lih">           </span> -->
                     </div>
+                  </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-12 bleft">
-                            <h4 class="fontw">Guidelines for Candidate</h4>
-                            <h6 class="lih fnt"><img class="pr-3" src="../../assets/img/pdf.png" width="55rem">Instruction Set for Online Application Process A ( File Size : 2.64 MB )</h6>
-                            <h6 class="lih fnt"><img class="pr-3" src="../../assets/img/pdf.png" width="55rem">Instruction Set for Online Application Process B ( File Size : 3.64 MB )</h6>
-                            <h6 class="lih fnt"><img class="pr-3" src="../../assets/img/pdf.png" width="55rem">Instruction Set for Online Application Process C ( File Size : 1.64 MB )</h6>
-                            <h6 class="lih fnt"><img class="pr-3" src="../../assets/img/pdf.png" width="55rem">Instruction Set for Online Application Process D ( File Size : 6.64 MB )</h6>
-                           
-                        </div>
+                  <div class="row">
+                    <div class="col-md-12 bleft">
+                      <h4 class="fontw">Guidelines for Candidate</h4>
+                      <h6 class="lih fnt">
+                        <img
+                          class="pr-3"
+                          src="../../assets/img/pdf.png"
+                          width="55rem"
+                        />Instruction Set for Online Application Process A ( File
+                        Size : 2.64 MB )
+                      </h6>
+                      <h6 class="lih fnt">
+                        <img
+                          class="pr-3"
+                          src="../../assets/img/pdf.png"
+                          width="55rem"
+                        />Instruction Set for Online Application Process B ( File
+                        Size : 3.64 MB )
+                      </h6>
+                      <h6 class="lih fnt">
+                        <img
+                          class="pr-3"
+                          src="../../assets/img/pdf.png"
+                          width="55rem"
+                        />Instruction Set for Online Application Process C ( File
+                        Size : 1.64 MB )
+                      </h6>
+                      <h6 class="lih fnt">
+                        <img
+                          class="pr-3"
+                          src="../../assets/img/pdf.png"
+                          width="55rem"
+                        />Instruction Set for Online Application Process D ( File
+                        Size : 6.64 MB )
+                      </h6>
                     </div>
+                  </div>
                 </div>
-            </div>
-            <div class="row mb-3">
+              </div>
+              <div class="row mb-3">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h6 class="fontw">Support timing : Monday to Friday 9:00 AM to 8:00 PM , Saturday & Sunday : 9:30 AM to 6:30 PM</h6>
-                        </div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h6 class="fontw">
+                        Support timing : Monday to Friday 9:00 AM to 8:00 PM ,
+                        Saturday & Sunday : 9:30 AM to 6:30 PM
+                      </h6>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
+
