@@ -3,7 +3,6 @@ import { NgModule, NO_ERRORS_SCHEMA, Injectable, CUSTOM_ELEMENTS_SCHEMA, Injecto
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,7 +53,6 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 // import { ChartsModule } from 'ng2-charts';
 import { FooterComponent } from './footer/footer.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -79,8 +77,6 @@ export class SafeHtmlPipe implements PipeTransform {
 @NgModule({
   declarations: [ 
     AppComponent,
-    LoginComponent,
-    UserdashboardComponent,
     SafeHtmlPipe,
     FooterComponent,
     SideNavComponent,
