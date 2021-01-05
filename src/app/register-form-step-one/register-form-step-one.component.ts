@@ -51,8 +51,11 @@ export class RegisterFormStepOneComponent implements OnInit {
       certificate_no: new FormControl(''),
       issue_date: new FormControl(''),
     });
-
     this.refUserId = this.sessionstorge.get('ref_user_id');
+    alert(this.refUserId);
+    if(this.refUserId != 0 || this.refUserId != undefined || this.refUserId != null ){
+      this.reloadPersonalDetails()
+    }
   }
   matcher = new steponeError();
   addpersonal_details() {
@@ -64,10 +67,11 @@ export class RegisterFormStepOneComponent implements OnInit {
       aadhar_name: this.personal_details.value["aadhar_name"],
       salutation: this.personal_details.value["salutation"],
       full_name: this.personal_details.value["full_name"],
+      mother_name: this.personal_details.value["mother_name"],
       dob: this.personal_details.value["dob"],
       gender: this.personal_details.value["gender"],
       mobile_no: this.personal_details.value["mobile_no"],
-      email_id: this.personal_details.value["emaiemail_idlid"],
+      email_id: this.personal_details.value["email_id"],
       marital_status: this.personal_details.value["marital_status"],
       nationality: this.personal_details.value["nationality"],
       height: this.personal_details.value["height"],
@@ -96,16 +100,32 @@ export class RegisterFormStepOneComponent implements OnInit {
   }
 
   reloadPersonalDetails(){
-    this.restApiService.getPersonalDetails(this.refUserId ).subscribe((res) => {
-      if (res) {
+    alert("dcdfdf")
+    this.restApiService.getPersonalDetails(this.refUserId).subscribe((res) => {
         if (res.status == true) {
-          console.log(res);
+          this.personal_details = this.fb.group({
+            holding_aadhar: new FormControl(res.data[0].holding_aadhar, [Validators.required]),
+            aadhar_no: new FormControl(res.data[0].aadhar_no, [Validators.required]),
+            aadhar_name: new FormControl(res.data[0].aadhar_name, [Validators.required]),
+            salutation: new FormControl(res.data[0].salutation, [Validators.required]),
+            full_name: new FormControl(res.data[0].full_name),
+            mother_name: new FormControl(res.data[0].mother_name),
+            dob: new FormControl(res.data[0].dob),
+            gender: new FormControl(res.data[0].gender, [Validators.required]),
+            mobile_no: new FormControl(res.data[0].mobile_no, [Validators.required]),
+            email_id: new FormControl(res.data[0].email_id, [Validators.required]),
+            marital_status: new FormControl(res.data[0].marital_status, [Validators.required]),
+            nationality: new FormControl(res.data[0].nationality),
+            height: new FormControl(res.data[0].height),
+            weight: new FormControl(res.data[0].dob),
+            caste_category: new FormControl(res.data[0].caste_category),
+            certificate_no: new FormControl(res.data[0].certificate_no),
+            issue_date: new FormControl(res.data[0].issue_date)
+          }); 
           this.restApiService.openSnackbar(res.message);
         } else {
           this.restApiService.openSnackbar(res.message);
         }
-      } else {
-      }
     });
   }
 }

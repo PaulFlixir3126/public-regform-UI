@@ -19,6 +19,7 @@ const httpOptions = {
 })
 export class restApiService {
   public img='';
+  public tabIndex = 0;
   private APIService: string = environment.serviceUrl; // this has to be load from an external config file
   constructor(private http: HttpClient, public snackBar: MatSnackBar,) {
     this.APIService = environment.serviceUrl;

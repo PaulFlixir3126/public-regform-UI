@@ -38,7 +38,7 @@
       <div class="card">
         <div class="row">
           <div class="col-md-12 pl-5 pr-5 pt-3">
-            <mat-tab-group>
+            <mat-tab-group [(selectedIndex)]="tabIndex">
               <mat-tab>
                 <ng-template mat-tab-label> Personal Info </ng-template>
                 <app-register-form-step-one></app-register-form-step-one>
