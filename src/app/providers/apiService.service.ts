@@ -63,7 +63,30 @@ export class restApiService {
         tap(heroes => this.log(`Created user`)),
       );
   }
-  
+  sendEmailOtp(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/user/email/send", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created user`)),
+      );
+  } 
+  sendSMSOtp(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/user/mobile/send", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created user`)),
+      );
+  } 
+  verifyEmailOtp(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/user/email/verify", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created user`)),
+      );
+  } 
+   verifySMSOtp(Payload): Observable<any> {
+    return this.http.post(this.APIService + "/register/user/mobile/verify", Payload)
+      .pipe(
+        tap(heroes => this.log(`Created user`)),
+      );
+  }
 
   // experInfoCreation(Payload): Observable<any> {
   //   return this.http.post(this.APIService + "/register/user/experience", Payload)
