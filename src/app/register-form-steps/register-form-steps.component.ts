@@ -22,5 +22,10 @@ export class RegisterFormStepsComponent implements OnInit {
     this.router.navigate([route_to]);
   }
 
+  logout(){
+    localStorage.clear();
+    sessionStorage.clear();
+    this.navigate('./home')
+  }
 
 }
