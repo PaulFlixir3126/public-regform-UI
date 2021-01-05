@@ -53,4 +53,17 @@ export class RegisterFormStepTwoComponent implements OnInit {
       }
     });
   }
+  reloadAddressDetails(){
+    this.restApiService.getAddressDetails(this.refUserId ).subscribe((res) => {
+      if (res) {
+        if (res.status == true) {
+          console.log(res);
+          this.restApiService.openSnackbar(res.message);
+        } else {
+          this.restApiService.openSnackbar(res.message);
+        }
+      } else {
+      }
+    });
+  }
 }

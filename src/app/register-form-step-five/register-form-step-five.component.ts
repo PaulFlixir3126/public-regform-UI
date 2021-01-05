@@ -60,4 +60,18 @@ export class RegisterFormStepFiveComponent implements OnInit {
       }
     });
   }
+
+  reloadExprienceDetails(){
+    this.restApiService.getExperienceDetails(this.refUserId ).subscribe((res) => {
+      if (res) {
+        if (res.status == true) {
+          console.log(res);
+          this.restApiService.openSnackbar(res.message);
+        } else {
+          this.restApiService.openSnackbar(res.message);
+        }
+      } else {
+      }
+    });
+  }
 }

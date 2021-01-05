@@ -94,4 +94,18 @@ export class RegisterFormStepOneComponent implements OnInit {
     }
   
   }
+
+  reloadPersonalDetails(){
+    this.restApiService.getPersonalDetails(this.refUserId ).subscribe((res) => {
+      if (res) {
+        if (res.status == true) {
+          console.log(res);
+          this.restApiService.openSnackbar(res.message);
+        } else {
+          this.restApiService.openSnackbar(res.message);
+        }
+      } else {
+      }
+    });
+  }
 }

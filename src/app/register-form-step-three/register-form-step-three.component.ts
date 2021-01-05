@@ -68,4 +68,18 @@ export class RegisterFormStepThreeComponent implements OnInit {
       }
     });
   }
+
+  reloadOthersDetails(){
+    this.restApiService.getOtherDetails(this.refUserId ).subscribe((res) => {
+      if (res) {
+        if (res.status == true) {
+          console.log(res);
+          this.restApiService.openSnackbar(res.message);
+        } else {
+          this.restApiService.openSnackbar(res.message);
+        }
+      } else {
+      }
+    });
+  }
 }

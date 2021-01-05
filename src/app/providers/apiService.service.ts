@@ -31,32 +31,65 @@ export class restApiService {
       );
   }
 
+  getPersonalDetails(Payload): Observable<any> {
+    return this.http.get(this.APIService + "/register/user/personal?ref_user_id="+Payload)
+      .pipe(
+        tap(heroes => this.log(`fetched personal`)),
+      );
+  }
+// +++++++++++++++++++++++
   addressInfoCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/user/address", Payload)
       .pipe(
         tap(heroes => this.log(`Created address`)),
       );
   }
-
+  getAddressDetails(Payload): Observable<any> {
+    return this.http.get(this.APIService + "/register/user/address?ref_user_id="+Payload)
+      .pipe(
+        tap(heroes => this.log(`fetched personal`)),
+      );
+  }
+  // +++++++++++++++++++++++
   othersInfoCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/user/other", Payload)
       .pipe(
         tap(heroes => this.log(`Created others`)),
       );
   }
-
+  getOtherDetails(Payload): Observable<any> {
+    return this.http.get(this.APIService + "/register/user/other?ref_user_id="+Payload )
+      .pipe(
+        tap(heroes => this.log(`fetched exp`)),
+      );
+  }
+// +++++++++++++++++++++++
   qualificationInfoCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/user/qualification", Payload)
       .pipe(
         tap(heroes => this.log(`Created qualification`)),
       );
   }
+  getQualificationDetails(Payload): Observable<any> {
+    return this.http.get(this.APIService + "/register/user/qualification?ref_user_id="+Payload )
+      .pipe(
+        tap(heroes => this.log(`fetched exp`)),
+      );
+  }
+  // +++++++++++++++++++++++
   experInfoCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/user/experience", Payload)
       .pipe(
         tap(heroes => this.log(`Created exp`)),
       );
   }
+  getExperienceDetails(Payload): Observable<any> {
+    return this.http.get(this.APIService + "/register/user/experience?ref_user_id="+Payload )
+      .pipe(
+        tap(heroes => this.log(`fetched exp`)),
+      );
+  }
+  // 
   userCreation(Payload): Observable<any> {
     return this.http.post(this.APIService + "/register/create/user", Payload)
       .pipe(
