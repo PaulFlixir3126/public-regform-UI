@@ -119,10 +119,14 @@
                 name="pincode"
                 type="text"
                 matInput
-                placeholder="XYZ ZZ XYZ"
+                placeholder="560077"
+                pattern="\d+"
               />
               <mat-error *ngIf="address_details.get('pincode').hasError('required')">
                 Pincode is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="address_details.get('pincode').hasError('pattern')">
+                Enter only Number
               </mat-error>
             </mat-form-field>
           </div>

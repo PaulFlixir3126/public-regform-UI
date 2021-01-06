@@ -22,7 +22,6 @@
                 formControlName="emp_present_past"
                 name="emp_present_past"
                 matNativeControl
-                required
               >
                 <option value=""></option>
                 <option value="Present">Present</option>
@@ -74,7 +73,7 @@
             <mat-form-field class="example-full-width">
               <mat-label
                 >5.4 Is Office/Institute owned byGovt. of Maharashtra?
-                *</mat-label
+                </mat-label
               >
               <select
                 id="office_inst_own_govt"
@@ -104,7 +103,11 @@
                 type="text"
                 matInput
                 placeholder="1234"
+                pattern="\d+"
               />
+              <mat-error *ngIf="experience_details.get('pay_scale').hasError('pattern')">
+                Enter a valid value 
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -118,7 +121,11 @@
                 type="text"
                 matInput
                 placeholder="1234"
+                pattern="\d+"
               />
+              <mat-error *ngIf="experience_details.get('basic_pay').hasError('pattern')">
+                Enter a valid value 
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -133,7 +140,11 @@
                 type="text"
                 matInput
                 placeholder="1234"
+                pattern="\d+"
               />
+              <mat-error *ngIf="experience_details.get('gross_salary').hasError('pattern')">
+                Enter a valid value 
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0 text-center">

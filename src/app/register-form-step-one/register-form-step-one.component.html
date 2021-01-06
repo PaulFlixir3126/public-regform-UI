@@ -48,12 +48,18 @@
                 type="text"
                 matInput
                 maxlength="12"
-                placeholder="A123456Z2"
+                placeholder="123456Z2"
+                pattern="\d+"
               />
               <mat-error
                 *ngIf="personal_details.get('aadhar_no').hasError('required')"
               >
                 Aadhaar Number <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="personal_details.get('aadhar_no').hasError('pattern')"
+              >
+                Enter only Number
               </mat-error>
             </mat-form-field>
           </div>
@@ -193,6 +199,7 @@
                 formControlName="mobile_no"
                 name="mobile_no"
                 type="text"
+                pattern="\d+"
                 matInput
                 placeholder="0987654321"
               />
@@ -200,6 +207,11 @@
                 *ngIf="personal_details.get('mobile_no').hasError('required')"
               >
                 Mobile number is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="personal_details.get('mobile_no').hasError('pattern')"
+              >
+                Enter only Number
               </mat-error>
             </mat-form-field>
           </div>
@@ -303,7 +315,14 @@
                 type="text"
                 matInput
                 placeholder="173"
+                pattern="\d+"
               />
+              <mat-error
+                *ngIf="personal_details.get('height').hasError('pattern')"
+              >
+                Enter only Number
+              </mat-error>
+
             </mat-form-field>
           </div>
           <div class="offset-md-1 col-md-5 pt-1 pl-0">
@@ -316,7 +335,13 @@
                 type="text"
                 matInput
                 placeholder="60"
+                pattern="\d+"
               />
+              <mat-error
+                *ngIf="personal_details.get('weight').hasError('pattern')"
+              >
+                Enter only Number
+              </mat-error>
             </mat-form-field>
           </div>
         </div>

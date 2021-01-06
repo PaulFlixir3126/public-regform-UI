@@ -36,19 +36,19 @@ export class RegisterFormStepOneComponent implements OnInit {
   ngOnInit() {
     this.personal_details = this.fb.group({
       holding_aadhar: new FormControl('', [Validators.required]),
-      aadhar_no: new FormControl('', [Validators.required,Validators.minLength(12),Validators.maxLength(12)]),
+      aadhar_no: new FormControl('', [Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern(/^[0-9]\d*$/)]),
       aadhar_name: new FormControl('', [Validators.required,Validators.maxLength(25)]),
       salutation: new FormControl('', [Validators.required]),
       full_name: new FormControl('', [Validators.required,Validators.maxLength(20)]),
       mother_name: new FormControl('', [Validators.required,Validators.maxLength(15)]),
       dob: new FormControl('', [Validators.required]),
       gender: new FormControl(1, [Validators.required]),
-      mobile_no: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+      mobile_no: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(/^[0-9]\d*$/)]),
       email_id: new FormControl('', [Validators.required,Validators.email,]),
       marital_status: new FormControl('', [Validators.required]),
       nationality: new FormControl('', [Validators.required]),
-      height: new FormControl(''),
-      weight: new FormControl(''),
+      height: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
+      weight: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
       caste_category: new FormControl('', [Validators.required]),
       certificate_no: new FormControl(''),
       issue_date: new FormControl(''),
@@ -125,7 +125,7 @@ export class RegisterFormStepOneComponent implements OnInit {
           }); 
           this.restApiService.openSnackbar(res.message);
         } else {
-          this.restApiService.openSnackbar(res.message);
+          // this.restApiService.openSnackbar(res.message);
         }
     });
   }

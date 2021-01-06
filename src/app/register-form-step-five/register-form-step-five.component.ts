@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 import { LocalStorageService, SessionStorageService } from 'ngx-store';
 import { from } from 'rxjs';
+// import { setInterval } from 'timers';
 import { restApiService } from "../providers/apiService.service";
 import {RegisterFormStepsComponent} from "../register-form-steps/register-form-steps.component"
 @Component({
@@ -31,13 +32,13 @@ export class RegisterFormStepFiveComponent implements OnInit {
 
   ngOnInit() {
     this.experience_details = this.fb.group({
-      emp_present_past: new FormControl('', [Validators.required]),
+      emp_present_past: new FormControl('', [Validators.required,]),
       selected_mpsc: new FormControl('', [Validators.required]),
       organisation: new FormControl('', [Validators.required]),
       office_inst_own_govt: new FormControl('', [Validators.required]),
-      pay_scale: new FormControl(''),
-      basic_pay: new FormControl(''),
-      gross_salary: new FormControl(''),
+      pay_scale: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
+      basic_pay: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
+      gross_salary: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
     });   
      this.refUserId = this.sessionstorge.get('ref_user_id');
      this.reloadExprienceDetails();
@@ -88,16 +89,8 @@ export class RegisterFormStepFiveComponent implements OnInit {
       this.restApiService.experInfoCreation(payload).subscribe((res) => {
           if (res.status == true) {
             this.restApiService.openSnackbar(res.message);
-            this.experience_details = this.fb.group({
-              emp_present_past: new FormControl('', [Validators.required]),
-              selected_mpsc: new FormControl('', [Validators.required]),
-              organisation: new FormControl('', [Validators.required]),
-              office_inst_own_govt: new FormControl('', [Validators.required]),
-              pay_scale: new FormControl(''),
-              basic_pay: new FormControl(''),
-              gross_salary: new FormControl(''),
-            });   
-            this.reloadExprienceDetails()
+            this.experience_details.reset();
+            this.reloadExprienceDetails() 
           } else {
             this.restApiService.openSnackbar(res.message);
           }
@@ -113,10 +106,10 @@ edit(editttt){
       this.showUpdate = true;
       this.showAdd = false;
       this.experience_details = this.fb.group({
-        emp_present_past: new FormControl(element.emp_present_past, [Validators.required]),
-        selected_mpsc: new FormControl(element.selected_mpsc, [Validators.required]),
-        organisation: new FormControl(element.organisation, [Validators.required]),
-        office_inst_own_govt: new FormControl(element.office_inst_own_govt, [Validators.required]),
+        emp_present_past: new FormControl(element.emp_present_past),
+        selected_mpsc: new FormControl(element.selected_mpsc),
+        organisation: new FormControl(element.organisation),
+        office_inst_own_govt: new FormControl(element.office_inst_own_govt),
         pay_scale: new FormControl(element.pay_scale),
         basic_pay: new FormControl(element.basic_pay),
         gross_salary: new FormControl(element.gross_salary),
@@ -140,17 +133,17 @@ edit(editttt){
     gross_salary: this.experience_details.value["gross_salary"],
   };
   this.restApiService.expirUpdate(payload).subscribe((res) => {
-    if (res) {
       if (res.status == true) {
+        
         this.restApiService.openSnackbar(res.message);
+        // this.ngOnInit();
         this.showUpdate = false;
         this.showAdd = true;
-        this.reloadExprienceDetails();
+        this.experience_details.reset();
+        // this.ngOnInit();
       } else {
         this.restApiService.openSnackbar(res.message);
       }
-    } else {
-    }
   });
 }
   
@@ -162,7 +155,7 @@ edit(editttt){
           this.expriencesList = res.data; 
           this.restApiService.openSnackbar(res.message);
         } else {
-          this.restApiService.openSnackbar(res.message);
+          // this.restApiService.openSnackbar(res.message);
         }
       } else {
       }

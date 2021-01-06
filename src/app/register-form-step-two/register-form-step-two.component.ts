@@ -82,11 +82,11 @@ export class RegisterFormStepTwoComponent implements OnInit {
             locality: new FormControl(res.data[0].locality, [Validators.required,]),
             landmark: new FormControl(res.data[0].landmark,),
             state: new FormControl(res.data[0].state, [Validators.required]),
-            pincode: new FormControl(res.data[0].pincode, [Validators.required]),
+            pincode: new FormControl(res.data[0].pincode, [Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
           });
           this.restApiService.openSnackbar(res.message);
         } else {
-          this.restApiService.openSnackbar(res.message);
+          // this.restApiService.openSnackbar(res.message);
         }
     });
   }

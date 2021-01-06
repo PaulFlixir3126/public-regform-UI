@@ -97,7 +97,7 @@ export class RegisterFormStepThreeComponent implements OnInit {
           });
           this.restApiService.openSnackbar(res.message);
         } else {
-          this.restApiService.openSnackbar(res.message);
+          // this.restApiService.openSnackbar(res.message);
         }
     });
   }
