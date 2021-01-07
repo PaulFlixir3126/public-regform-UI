@@ -140,6 +140,7 @@ edit(editttt){
         this.showUpdate = false;
         this.showAdd = true;
         this.experience_details.reset();
+        this.reloadExprienceDetails()
         // this.ngOnInit();
       } else {
         this.restApiService.openSnackbar(res.message);
