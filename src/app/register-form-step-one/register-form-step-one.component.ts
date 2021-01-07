@@ -25,6 +25,8 @@ export class steponeError implements ErrorStateMatcher {
 export class RegisterFormStepOneComponent implements OnInit {
   personal_details: FormGroup;
   refUserId: 0;
+  // disabledfield:boolean = false
+  disableTextbox = false;
   constructor(
     private restApiService: restApiService,
     private fb: FormBuilder,
@@ -36,7 +38,7 @@ export class RegisterFormStepOneComponent implements OnInit {
   ngOnInit() {
     this.personal_details = this.fb.group({
       holding_aadhar: new FormControl('', [Validators.required]),
-      aadhar_no: new FormControl('', [Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern(/^[0-9]\d*$/)]),
+      aadhar_no: new FormControl('', [Validators.required,Validators.pattern(/^[0-9]\d*$/)]),
       aadhar_name: new FormControl('', [Validators.required,Validators.maxLength(25)]),
       salutation: new FormControl('', [Validators.required]),
       full_name: new FormControl('', [Validators.required,Validators.maxLength(20)]),
@@ -59,6 +61,15 @@ export class RegisterFormStepOneComponent implements OnInit {
     }
   }
   matcher = new steponeError();
+  adharselect(){
+    if(this.personal_details.value["holding_aadhar"] == "Yes" ){
+      this.disableTextbox = false;
+      this.personal_details.patchValue({'aadhar_no': '','aadhar_name':'' })
+    }else{
+      this.disableTextbox = true;
+      this.personal_details.patchValue({'aadhar_no': '0','aadhar_name':'N/A' })
+    }
+  }
   addpersonal_details() {
     console.log(this.personal_details.value);
     let payload = {

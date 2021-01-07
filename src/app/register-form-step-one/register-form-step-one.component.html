@@ -24,6 +24,7 @@
                 class="form-control"
                 formControlName="holding_aadhar"
                 matNativeControl
+                (change)="adharselect()"
               >
                 <option value=""></option>
                 <option value="Yes">Yes</option>
@@ -50,6 +51,7 @@
                 maxlength="12"
                 placeholder="123456Z2"
                 pattern="\d+"
+                [readonly]=disableTextbox
               />
               <mat-error
                 *ngIf="personal_details.get('aadhar_no').hasError('required')"
@@ -74,6 +76,7 @@
                 name="aadhar_name"
                 type="text"
                 matInput
+                [readonly]=disableTextbox
                 placeholder="Ex. (Exactly as mentioned on Aadhaar Card) "
               />
               <mat-error
