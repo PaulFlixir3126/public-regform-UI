@@ -48,20 +48,27 @@ export class RegisterFormComponent implements OnInit {
       password: this.userCreation.value["confirmPassword"],
     };
     // console.log(JSON.stringify(payload));
-    if (this.userCreation.valid && this.emailverified && this.mobileVerified) {
-      this.restApiService.userCreation(payload).subscribe((res) => {
-        if (res) {
-          // console.log(res);
-          if (res.status == true) {
-            this.restApiService.openSnackbar(res.message);
-            this.router.navigate(['/home']);
-          } else {
-            this.restApiService.openSnackbar(res.message);
-          }
+    if (this.userCreation.valid) {
+      if (this.userCreation.valid && this.emailverified) {
+        if (this.userCreation.valid && this.emailverified && this.mobileVerified) {
+          this.restApiService.userCreation(payload).subscribe((res) => {
+            if (res) {
+              if (res.status == true) {
+                this.restApiService.openSnackbar(res.message);
+                this.router.navigate(['/home']);
+              } else {
+                this.restApiService.openSnackbar(res.message);
+              }
+            } else {
+              this.restApiService.openSnackbar("Error");
+            }
+          });
         } else {
-          this.restApiService.openSnackbar("Error");
+          this.restApiService.openSnackbar("Please Verify Phone Number");
         }
-      });
+      } else {
+        this.restApiService.openSnackbar("Please Verify Email Id");
+      }
     } else {
       this.restApiService.openSnackbar("Please fill required fields");
     }
