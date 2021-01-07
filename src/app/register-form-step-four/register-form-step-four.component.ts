@@ -29,7 +29,7 @@ export class RegisterFormStepFourComponent implements OnInit {
       name_of_degree: new FormControl('', [Validators.required]),
       subject: new FormControl(''),
       board_university: new FormControl('', [Validators.required]),
-      precentage: new FormControl(''),
+      precentage: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
       remark: new FormControl(''),
     });
     this.refUserId = this.sessionstorge.get('ref_user_id');

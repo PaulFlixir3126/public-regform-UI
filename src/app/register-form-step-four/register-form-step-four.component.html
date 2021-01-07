@@ -100,8 +100,13 @@
                 formControlName="precentage"
                 type="text"
                 matInput
-                placeholder="1234"
+                placeholder="100"
+                maxlength="3"
+                pattern="\d+"
               />
+              <mat-error *ngIf="qualification_details.get('precentage').hasError('pattern')">
+              Enter a valid value eg. 40
+              </mat-error>
             </mat-form-field>
           </div>
         </div>

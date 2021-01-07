@@ -32,10 +32,10 @@ export class RegisterFormStepFiveComponent implements OnInit {
 
   ngOnInit() {
     this.experience_details = this.fb.group({
-      emp_present_past: new FormControl('', [Validators.required,]),
-      selected_mpsc: new FormControl('', [Validators.required]),
-      organisation: new FormControl('', [Validators.required]),
-      office_inst_own_govt: new FormControl('', [Validators.required]),
+      emp_present_past: new FormControl(''),
+      selected_mpsc: new FormControl(''),
+      organisation: new FormControl(''),
+      office_inst_own_govt: new FormControl(''),
       pay_scale: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
       basic_pay: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
       gross_salary: new FormControl('',[Validators.pattern(/^[0-9]\d*$/)]),
